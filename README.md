@@ -135,20 +135,20 @@ Saygılarımızla,
 Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
 - **Daily Scrum**: Sürekli iletişim halinde kalınarak her gün belli bir problem ele alınarak ilerlenmiştir. Bu dosya ile WhatsApp ve Discord görüşmelerinden önemli kesitler verilmiştir:  
-[**Sprint 1 Daily Scrum Chats**](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Daily%20Scrum%20Chats.pdf)
+[**Sprint 1 Daily Scrum Chats**](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Daily%20Scrum%20Chats.pdf)
 
 ## Product Backlog URL
 
 [Trello Backlog Board_Sprint_1](https://trello.com/b/CfONQ2GE/g%C3%B6revler) 
 
 - **Sprint board update**: Sprint board screenshotları
-![Sprint1_1](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_1.jpeg)
-![Sprint1_2](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_2.jpeg)
-![Sprint1_3](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_3.jpeg)
-![Sprint1_4](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_4.jpeg)
-![Sprint1_5](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_5.jpeg)
-![Sprint1_6](https://github.com/hsynkbulutk/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_6.jpeg)
-![Sprint1_7](https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_7.jpeg)
+![Sprint1_1](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_1.jpeg)
+![Sprint1_2](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_2.jpeg)
+![Sprint1_3](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_3.jpeg)
+![Sprint1_4](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_4.jpeg)
+![Sprint1_5](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_5.jpeg)
+![Sprint1_6](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_6.jpeg)
+![Sprint1_7](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/sprint1_7.jpeg)
 
 - **Uygulama UI Tasarımları**
 
@@ -160,9 +160,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
     
 
   <tr>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/loginUI.jpg" width="350" height="540"></td>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/homepageUI.jpg" width="350" height="540"></td>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/sidebarMenuUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/loginUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/homepageUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/sidebarMenuUI.jpg" width="350" height="540"></td>
    
  </table>
 
@@ -173,9 +173,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
      <td>6</td> 
 
   <tr>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/infoAndEducationUI.jpg" width="350" height="540"></td>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filan%C4%B1verUI.jpg" width="350" height="540"></td>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filanlar%C4%B1n%C4%B1g%C3%B6rUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/infoAndEducationUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filan%C4%B1verUI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filanlar%C4%B1n%C4%B1g%C3%B6rUI.jpg" width="350" height="540"></td>
    
  </table>
   
@@ -184,7 +184,7 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
     <td>7</td>
     
   <tr>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/main/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filandetaylar%C4%B1UI.jpg" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%201/Ekran%20Tasar%C4%B1mlar%C4%B1/ba%C4%9F%C4%B1%C5%9Filandetaylar%C4%B1UI.jpg" width="350" height="540"></td>
 
  </table>
 
