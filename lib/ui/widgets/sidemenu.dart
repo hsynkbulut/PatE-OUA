@@ -22,14 +22,16 @@ class _SideMenuState extends State<SideMenu> {
             child: Text('Pat-E',
                 style: TextStyle(color: Colors.white, fontSize: 25)),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(1.0),
-                  bottomRight: Radius.circular(1.0),
-                ),
-                color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(1.0),
+                bottomRight: Radius.circular(1.0),
+              ),
+              color: Colors.deepPurpleAccent,
+              /*
                 image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage('assets/images/back.jpg'))),
+                    image: AssetImage('assets/images/back.jpg'))*/
+            ),
           ),
           ListTile(
             leading: Icon(Icons.home_filled),
