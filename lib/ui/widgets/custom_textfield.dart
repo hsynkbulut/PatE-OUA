@@ -15,20 +15,30 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      style: TextStyle(
-        color: black,
-      ),
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        prefixIcon: Icon(
-          icon,
-          color: black.withOpacity(.3),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: yellow, // Border rengi burada ayarlanabilir
+          width: 2.0, // Border kalınlığı burada ayarlanabilir
         ),
-        hintText: hintText,
       ),
-      cursorColor: black.withOpacity(.5),
+      child: TextField(
+        obscureText: obscureText,
+        style: TextStyle(
+          color: Colors.black,
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          prefixIcon: Icon(
+            icon,
+            color: purple3.withOpacity(.6),
+          ),
+          hintText: hintText,
+        ),
+        cursorColor: Colors.black.withOpacity(.5),
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:pat_e/core/utils/themes/const.dart';
 import 'package:pat_e/ui/views/home/home.dart';
 import 'package:pat_e/ui/views/more/more.dart';
 import 'package:pat_e/ui/views/profile/profile.dart';
@@ -20,13 +21,14 @@ class _SideMenuState extends State<SideMenu> {
         children: [
           DrawerHeader(
             child: Text('Pat-E',
-                style: TextStyle(color: Colors.white, fontSize: 25)),
+                style: TextStyle(
+                    color: yellow, fontSize: 100, fontFamily: 'OhChewy')),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(1.0),
                 bottomRight: Radius.circular(1.0),
               ),
-              color: Colors.deepPurpleAccent,
+              color: purple,
               /*
                 image: DecorationImage(
                     fit: BoxFit.fill,

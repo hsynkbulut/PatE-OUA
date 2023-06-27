@@ -20,8 +20,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Text(
                   'Pat-E',
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'ErasBold',
+                    fontSize: 22,
                     color: Colors.yellow,
                   ),
                 ),
@@ -37,7 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               );
             },
             child: Image.asset(
-              'assets/images/logo.png',
+              'assets/images/logo3.png',
               width: 55,
               height: 55,
             ),
@@ -45,8 +45,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Text(
             'Pati Dostu Uygulama',
             style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+              fontFamily: 'ErasBold',
+              fontSize: 15,
               color: Colors.yellow,
             ),
           ),
