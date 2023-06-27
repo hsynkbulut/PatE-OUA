@@ -3,6 +3,7 @@ import 'package:pat_e/ui/views/more/more.dart';
 import 'package:pat_e/ui/views/profile/profile.dart';
 import 'package:pat_e/ui/views/team/team.dart';
 import 'package:flutter/material.dart';
+import 'package:pat_e/core/utils/themes/const.dart';
 
 class BottomNavbar extends StatefulWidget {
   int selectedIndex = 0;
@@ -47,7 +48,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
+        backgroundColor: purple,
         child: Icon(Icons.search),
         onPressed: () {
           print("add fab button");
@@ -78,16 +79,12 @@ class _BottomNavbarState extends State<BottomNavbar> {
                       children: [
                         Icon(
                           Icons.home_filled,
-                          color: currentIndex == 0
-                              ? Colors.pinkAccent
-                              : Colors.grey,
+                          color: currentIndex == 0 ? purple : Colors.grey,
                         ),
                         Text(
                           "Anasayfa",
                           style: TextStyle(
-                              color: currentIndex == 0
-                                  ? Colors.pinkAccent
-                                  : Colors.grey),
+                              color: currentIndex == 0 ? purple : Colors.grey),
                         )
                       ],
                     ),
@@ -105,16 +102,12 @@ class _BottomNavbarState extends State<BottomNavbar> {
                       children: [
                         Icon(
                           Icons.account_circle,
-                          color: currentIndex == 1
-                              ? Colors.blueAccent
-                              : Colors.grey,
+                          color: currentIndex == 1 ? purple : Colors.grey,
                         ),
                         Text(
                           "Profil",
                           style: TextStyle(
-                              color: currentIndex == 1
-                                  ? Colors.blueAccent
-                                  : Colors.grey),
+                              color: currentIndex == 1 ? purple : Colors.grey),
                         )
                       ],
                     ),
@@ -137,14 +130,12 @@ class _BottomNavbarState extends State<BottomNavbar> {
                       children: [
                         Icon(
                           Icons.phone,
-                          color: currentIndex == 2 ? Colors.blue : Colors.grey,
+                          color: currentIndex == 2 ? purple : Colors.grey,
                         ),
                         Text(
                           "İletişim",
                           style: TextStyle(
-                              color: currentIndex == 2
-                                  ? Colors.blue
-                                  : Colors.grey),
+                              color: currentIndex == 2 ? purple : Colors.grey),
                         )
                       ],
                     ),
@@ -162,16 +153,12 @@ class _BottomNavbarState extends State<BottomNavbar> {
                       children: [
                         Icon(
                           Icons.info,
-                          color: currentIndex == 3
-                              ? Colors.orangeAccent
-                              : Colors.grey,
+                          color: currentIndex == 3 ? purple : Colors.grey,
                         ),
                         Text(
                           "Hakkında",
                           style: TextStyle(
-                              color: currentIndex == 3
-                                  ? Colors.orangeAccent
-                                  : Colors.grey),
+                              color: currentIndex == 3 ? purple : Colors.grey),
                         )
                       ],
                     ),

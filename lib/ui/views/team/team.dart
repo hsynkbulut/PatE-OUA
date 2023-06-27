@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pat_e/ui/widgets/customappbar.dart';
 import 'package:pat_e/ui/widgets/sidemenu.dart';
 
 class Team extends StatefulWidget {
@@ -13,21 +14,18 @@ class _TeamState extends State<Team> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideMenu(),
-      appBar: AppBar(
-        title: Text("Team"),
-        backgroundColor: Colors.pinkAccent,
-      ),
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'TEAM',
+              'İletişim Sayfası',
               style: TextStyle(fontSize: 40),
             ),
           ],
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

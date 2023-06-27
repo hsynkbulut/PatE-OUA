@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pat_e/ui/widgets/sidemenu.dart';
+import 'package:pat_e/ui/widgets/customappbar.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -13,21 +14,18 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideMenu(),
-      appBar: AppBar(
-        title: Text("Profile"),
-        backgroundColor: Colors.blueAccent,
-      ),
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'PROFILE',
+              'Profil Sayfası',
               style: TextStyle(fontSize: 40),
             ),
           ],
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
