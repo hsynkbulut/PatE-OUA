@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pat_e/core/utils/themes/const.dart';
+import 'package:pat_e/core/utils/routing/route_constant.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/core/models/onboards_model.dart';
-import 'package:pat_e/ui/views/home/home.dart';
-import 'package:pat_e/ui/views/startup/signin_page.dart';
-import 'package:pat_e/ui/widgets/bottomnavbar.dart';
 
 class OnBoardPage extends StatefulWidget {
   const OnBoardPage({Key? key}) : super(key: key);
@@ -18,13 +16,13 @@ class _OnBoardPageState extends State<OnBoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: bgColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.75,
-            color: white,
+            color: bgColor,
             child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {
@@ -38,21 +36,18 @@ class _OnBoardPageState extends State<OnBoardPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignIn()),
-                  (route) => false);
+              Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
             },
             child: Container(
                 height: 50,
                 width: MediaQuery.of(context).size.width * 0.6,
                 decoration: BoxDecoration(
-                    color: purple,
+                    color: primaryColor,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: const [
                       BoxShadow(
                           offset: Offset(0, 3),
-                          color: purple2,
+                          color: tertiaryColor,
                           spreadRadius: 0,
                           blurRadius: 5)
                     ]),
@@ -62,7 +57,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                         ? 'Giriş Yap'
                         : 'Devam Et',
                     style: poppins.copyWith(
-                        color: white,
+                        color: bgColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
@@ -89,7 +84,9 @@ class _OnBoardPageState extends State<OnBoardPage> {
       margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3),
-          color: currentPage == index ? purple : black.withOpacity(0.6)),
+          color: currentPage == index
+              ? primaryColor
+              : mainAuxiliaryColor.withOpacity(0.6)),
     );
   }
 }
@@ -107,7 +104,7 @@ class OnBoardContent extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           width: MediaQuery.of(context).size.width - 40,
           decoration: const BoxDecoration(
-              color: white,
+              color: bgColor,
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
           child: Stack(
             children: [
@@ -118,7 +115,7 @@ class OnBoardContent extends StatelessWidget {
                   child: Container(
                     height: 200,
                     width: MediaQuery.of(context).size.width - 40,
-                    color: purple2,
+                    color: tertiaryColor,
                     child: Stack(
                       children: [
                         Positioned(
@@ -130,7 +127,7 @@ class OnBoardContent extends StatelessWidget {
                               angle: -11.5,
                               child: SvgPicture.asset(
                                 'assets/Paw_Print.svg',
-                                color: purple2.shade400,
+                                color: tertiaryColor.shade400,
                               )),
                         ),
                         Positioned(
@@ -142,7 +139,7 @@ class OnBoardContent extends StatelessWidget {
                               angle: 67,
                               child: SvgPicture.asset(
                                 'assets/Paw_Print.svg',
-                                color: purple2.shade400,
+                                color: tertiaryColor.shade400,
                               )),
                         )
                       ],
@@ -165,7 +162,7 @@ class OnBoardContent extends StatelessWidget {
           TextSpan(
               style: poppins.copyWith(
                   height: 1.2,
-                  color: black,
+                  color: mainAuxiliaryColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 32),
               children: [
@@ -179,7 +176,7 @@ class OnBoardContent extends StatelessWidget {
         Text(
           onBoard.text,
           textAlign: TextAlign.center,
-          style: poppins.copyWith(color: black.withOpacity(0.6)),
+          style: poppins.copyWith(color: mainAuxiliaryColor.withOpacity(0.6)),
         )
       ],
     );

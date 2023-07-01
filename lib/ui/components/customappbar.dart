@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/views/home/home.dart';
-import 'package:pat_e/core/utils/themes/const.dart';
-import 'package:pat_e/ui/widgets/bottomnavbar.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
+import 'package:pat_e/ui/components/bottomnavbar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -9,20 +10,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: purple,
+      backgroundColor: primaryColor,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             child: Row(
-              children: [
+              children: const [
                 SizedBox(width: 10),
                 Text(
-                  'Pat-E',
+                  AppConstant.appName,
                   style: TextStyle(
                     fontFamily: 'ErasBold',
                     fontSize: 22,
-                    color: Colors.yellow,
+                    color: secondaryColor,
                   ),
                 ),
               ],
@@ -37,17 +38,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               );
             },
             child: Image.asset(
-              'assets/images/logo3.png',
+              PathConstant.logoPath,
               width: 55,
               height: 55,
             ),
           ),
-          Text(
-            'Pati Dostu Uygulama',
+          const Text(
+            AppConstant.appDescription,
             style: TextStyle(
               fontFamily: 'ErasBold',
-              fontSize: 15,
-              color: Colors.yellow,
+              fontSize: 20,
+              color: secondaryColor,
             ),
           ),
         ],
@@ -56,5 +57,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/widgets/customappbar.dart';
-import 'package:pat_e/ui/widgets/sidemenu.dart';
+import 'package:pat_e/ui/components/customappbar.dart';
+import 'package:pat_e/ui/components/sidemenu.dart';
 
-class Team extends StatefulWidget {
-  const Team({super.key});
+class ContactPage extends StatefulWidget {
+  const ContactPage({super.key});
 
   @override
-  State<Team> createState() => _TeamState();
+  State<ContactPage> createState() => _ContactPageState();
 }
 
-class _TeamState extends State<Team> {
+class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
