@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/widgets/sidemenu.dart';
-import 'package:pat_e/ui/widgets/customappbar.dart';
+import 'package:pat_e/ui/components/sidemenu.dart';
+import 'package:pat_e/ui/components/customappbar.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

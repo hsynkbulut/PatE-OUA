@@ -80,10 +80,10 @@ flutter:
   fonts:
     - family: ErasBold
       fonts:
-        - asset: assets/google_fonts/ErasBoldITC.ttf
+        - asset: assets/custom_fonts/ErasBoldITC.ttf
     - family: OhChewy
       fonts:
-        - asset: assets/google_fonts/Oh-Chewy.ttf
+        - asset: assets/custom_fonts/Oh-Chewy.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

@@ -1,5 +1,5 @@
-import 'package:pat_e/ui/widgets/customappbar.dart';
-import 'package:pat_e/ui/widgets/sidemenu.dart';
+import 'package:pat_e/ui/components/customappbar.dart';
+import 'package:pat_e/ui/components/sidemenu.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

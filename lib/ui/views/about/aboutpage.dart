@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/widgets/customappbar.dart';
-import 'package:pat_e/ui/widgets/sidemenu.dart';
+import 'package:pat_e/ui/components/customappbar.dart';
+import 'package:pat_e/ui/components/sidemenu.dart';
 
-class More extends StatefulWidget {
-  const More({super.key});
+class AboutPage extends StatefulWidget {
+  const AboutPage({super.key});
 
   @override
-  State<More> createState() => _MoreState();
+  State<AboutPage> createState() => _AboutPageState();
 }
 
-class _MoreState extends State<More> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

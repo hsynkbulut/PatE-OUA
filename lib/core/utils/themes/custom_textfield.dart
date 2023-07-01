@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/core/utils/themes/const.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
 
 class CustomTextfield extends StatelessWidget {
   final IconData icon;
@@ -17,27 +17,27 @@ class CustomTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: bgColor,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: yellow, // Border rengi burada ayarlanabilir
+          color: secondaryColor, // Border rengi burada ayarlanabilir
           width: 2.0, // Border kalınlığı burada ayarlanabilir
         ),
       ),
       child: TextField(
         obscureText: obscureText,
         style: TextStyle(
-          color: Colors.black,
+          color: mainAuxiliaryColor,
         ),
         decoration: InputDecoration(
           border: InputBorder.none,
           prefixIcon: Icon(
             icon,
-            color: purple3.withOpacity(.6),
+            color: quaternaryColor.withOpacity(.6),
           ),
           hintText: hintText,
         ),
-        cursorColor: Colors.black.withOpacity(.5),
+        cursorColor: mainAuxiliaryColor.withOpacity(.5),
       ),
     );
   }

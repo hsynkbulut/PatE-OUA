@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/core/utils/themes/const.dart';
-import 'package:pat_e/ui/widgets/custom_textfield.dart';
-import 'package:pat_e/ui/views/startup/signin_page.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
+import 'package:pat_e/core/utils/routing/route_constant.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
+import 'package:pat_e/core/utils/themes/custom_textfield.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -17,13 +18,13 @@ class ForgotPassword extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-              Color(0xFF9072F3),
-              Color(0xFF8769e9),
-              Color(0xFF7148b5),
+              gradientColor1,
+              gradientColor2,
+              gradientColor3,
             ])),
         child: Scaffold(
           backgroundColor:
-              Colors.transparent, // Arka plan rengini kırmızı olarak ayarla
+              transparentColor, // Arka plan rengini transparan olarak ayarla
           body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: SingleChildScrollView(
@@ -32,18 +33,18 @@ class ForgotPassword extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/logo2.png',
+                    PathConstant.logoPath2,
                     width: 250,
                     height: 250,
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'PAT-E',
-                    style: TextStyle(
+                  Text(
+                    AppConstant.appName.toUpperCase(),
+                    style: const TextStyle(
                       fontFamily: 'ErasBold',
                       fontSize: 60.0,
                       fontWeight: FontWeight.bold,
-                      color: yellow,
+                      color: secondaryColor,
                     ),
                   ),
                   const SizedBox(
@@ -60,7 +61,7 @@ class ForgotPassword extends StatelessWidget {
                     child: Container(
                       width: size.width,
                       decoration: BoxDecoration(
-                        color: yellow,
+                        color: secondaryColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -69,7 +70,7 @@ class ForgotPassword extends StatelessWidget {
                         child: Text(
                           'Şifre Sıfırla',
                           style: TextStyle(
-                            color: black,
+                            color: mainAuxiliaryColor,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -82,26 +83,23 @@ class ForgotPassword extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            PageTransition(
-                                child: const SignIn(),
-                                type: PageTransitionType.bottomToTop));
+                        Navigator.pushNamed(
+                            context, RouteConstant.loginScreenRoute);
                       },
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text.rich(
                           TextSpan(children: [
                             TextSpan(
                               text: 'Hesabınız var mı? ',
                               style: TextStyle(
-                                color: black,
+                                color: mainAuxiliaryColor,
                               ),
                             ),
                             TextSpan(
                               text: 'Giriş Yap',
                               style: TextStyle(
-                                color: white,
+                                color: bgColor,
                               ),
                             ),
                           ]),

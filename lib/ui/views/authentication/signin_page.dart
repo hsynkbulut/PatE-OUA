@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/views/startup/forgot_password.dart';
-import 'package:pat_e/ui/views/startup/signup_page.dart';
-import 'package:pat_e/ui/widgets/bottomnavbar.dart';
-import 'package:pat_e/ui/widgets/custom_textfield.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:pat_e/core/utils/themes/const.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
+import 'package:pat_e/core/utils/routing/route_constant.dart';
+import 'package:pat_e/core/utils/themes/custom_textfield.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -19,13 +18,13 @@ class SignIn extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-              Color(0xFF9072F3),
-              Color(0xFF8769e9),
-              Color(0xFF7148b5),
+              gradientColor1,
+              gradientColor2,
+              gradientColor3,
             ])),
         child: Scaffold(
           backgroundColor:
-              Colors.transparent, // Arka plan rengini kırmızı olarak ayarla
+              transparentColor, // Arka plan rengini transparan olarak ayarla
           body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: SingleChildScrollView(
@@ -34,28 +33,28 @@ class SignIn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/logo2.png',
+                    PathConstant.logoPath2,
                     width: 250,
                     height: 250,
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'PAT-E',
-                    style: TextStyle(
+                    AppConstant.appName.toUpperCase(),
+                    style: const TextStyle(
                       fontFamily: 'ErasBold',
                       fontSize: 60.0,
                       fontWeight: FontWeight.bold,
-                      color: yellow, // Sarı renkte kalın yazıyla PAT-E yazısı
+                      color: secondaryColor,
                     ),
                   ),
                   const SizedBox(height: 30),
-                  CustomTextfield(
+                  const CustomTextfield(
                     obscureText: false,
                     hintText: 'Email adresinizi girin',
                     icon: Icons.alternate_email,
                   ),
                   const SizedBox(height: 10),
-                  CustomTextfield(
+                  const CustomTextfield(
                     obscureText: true,
                     hintText: 'Şifrenizi girin',
                     icon: Icons.lock,
@@ -63,18 +62,13 @@ class SignIn extends StatelessWidget {
                   const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        PageTransition(
-                          child: BottomNavbar(selectedIndex: 0),
-                          type: PageTransitionType.bottomToTop,
-                        ),
-                      );
+                      Navigator.pushNamed(
+                          context, RouteConstant.homeScreenRoute);
                     },
                     child: Container(
                       width: size.width,
                       decoration: BoxDecoration(
-                        color: yellow,
+                        color: secondaryColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -83,7 +77,7 @@ class SignIn extends StatelessWidget {
                         child: Text(
                           'Oturum Aç',
                           style: TextStyle(
-                              color: black,
+                              color: mainAuxiliaryColor,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
                         ),
@@ -93,18 +87,13 @@ class SignIn extends StatelessWidget {
                   const SizedBox(height: 10),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        PageTransition(
-                          child: const SignUp(),
-                          type: PageTransitionType.bottomToTop,
-                        ),
-                      );
+                      Navigator.pushNamed(
+                          context, RouteConstant.registerScreenRoute);
                     },
                     child: Container(
                       width: size.width,
                       decoration: BoxDecoration(
-                        color: white,
+                        color: bgColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -113,7 +102,7 @@ class SignIn extends StatelessWidget {
                         child: Text(
                           'Kaydol',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: mainAuxiliaryColor,
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold),
                         ),
@@ -125,15 +114,10 @@ class SignIn extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          PageTransition(
-                            child: const ForgotPassword(),
-                            type: PageTransitionType.bottomToTop,
-                          ),
-                        );
+                        Navigator.pushNamed(
+                            context, RouteConstant.forgotPasswordRoute);
                       },
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text.rich(
                           TextSpan(
@@ -142,7 +126,7 @@ class SignIn extends StatelessWidget {
                                 text: 'Şifremi Unuttum',
                                 style: TextStyle(
                                     fontSize: 16.0,
-                                    color: white,
+                                    color: bgColor,
                                     fontWeight: FontWeight.normal),
                               ),
                             ],
