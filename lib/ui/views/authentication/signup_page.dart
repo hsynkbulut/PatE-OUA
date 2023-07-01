@@ -33,7 +33,7 @@ class SignUp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    PathConstant.logoPath2,
+                    PathConstant.authenticationLogoImage,
                     width: 250,
                     height: 250,
                   ),
