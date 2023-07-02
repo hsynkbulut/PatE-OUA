@@ -203,3 +203,87 @@ Rezan Şentürk, Hüseyin Karabulut, Melek Karakaya, Nida Sağlam, Tuana Küçü
 
 -**Diğer Notlar**:
 - N/A
+
+
+# Sprint 2
+
+- **Sprint Notları**: Takım olarak proje yönetiminde Trello kullanımına başlanmıştır. User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ikinci sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
+
+- **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur. 
+
+Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+
+- **Daily Scrum**: Sürekli iletişim halinde kalınarak her gün belli bir problem ele alınarak ilerlenmiştir. Bu dosya ile WhatsApp ve Discord görüşmelerinden önemli kesitler verilmiştir:  
+[**Sprint 2 Daily Scrum Chats**](       )
+
+## Product Backlog URL
+
+[Trello Backlog Board_Sprint_2](https://trello.com/b/9VQollAa/2spri%CC%87nt-19-haziran-3-temmuz) 
+
+- **Sprint board update**: Sprint board screenshotları
+![Sprint2_1]()
+![Sprint2_2]()
+![Sprint2_3]()
+![Sprint2_4]()
+![Sprint2_5]()
+![Sprint2_6]()
+![Sprint2_7]()
+
+- **Uygulama UI Tasarımları**
+
+<table>
+  <tr>
+    <td>1</td>
+     <td>2</td>
+     <td>3</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/1.%20onboard%20page%201.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/1.%20onboard%20page%202.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/1.%20onboard%20page%203.png" width="350" height="540"></td>
+   
+ </table>
+
+<table>
+  <tr>
+    <td>4</td>
+     <td>5</td>
+     <td>6</td> 
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/2.%20login%20page.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/3.%20register%20page.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/4.%20forgot%20password.png" width="350" height="540"></td>
+   
+ </table>
+  
+<table>
+  <tr>
+   <td>7</td>
+     <td>8</td>
+     <td>9</td> 
+ 
+    
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/5.%20bottom%20navbar%20and%20appbar.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/6.%20sidebar%20menu.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/7.%20homepage.png" width="350" height="540"></td>
+ </table>
+
+**Sprint Review**: 
+Flutter projesi oluşturuldu. Flutterda klasör yapısı oluşturulup düzenlendi.Uygulama Onboard, Login, Register, Forgot Password, Anasayfa, Bottom Navbar, Sidebar Menü, App bar ekranları Flutterda geliştirildi. Uygulamanın yönetilebilirliği proje tarafında modüler hale getirildi. Takım olarak örnek GitHub simülasyon çalışması yapıldı. Trello yönetimi daha düzenli ve disiplinli hale getirildi.
+  
+**Sprint Review katılımcıları:** 
+Rezan Şentürk, Hüseyin Karabulut, Melek Karakaya, Nida Sağlam, Tuana Küçük
+
+**Sprint Retrospective:**
+- Bilgi ve Eğitim, Gönüllülük ve Etkinlikler kategorileri şimdilik proje kapsamından çıkarıldı.
+- Takım üyelerinden birinin sağlık durumu, bayram arası ve kalan sınavlardan dolayı veri tabanı tasarımı ve veri tabanı bağlantısı bir sonraki sprinte ertelendi. - Kategori ve detay sayfaları bir sonraki sprintte yapılması planlandı.
+ 
+-**Diğer Notlar**:
+- N/A
