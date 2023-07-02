@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^1.1.1+1
   google_fonts: ^3.0.1
   page_transition: ^2.0.5
+  flutter_custom_carousel_slider: ^1.2.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

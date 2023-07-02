@@ -61,18 +61,6 @@ class _SideMenuState extends State<SideMenu> {
             onTap: () =>
                 {Navigator.pushNamed(context, RouteConstant.contactRoute)},
           ),
-          ListTile(
-            leading: const Icon(Icons.cast_for_education),
-            title: const Text("Bilgi & Eğitim"),
-            onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.homeScreenRoute)},
-          ),
-          ListTile(
-            leading: const Icon(Icons.event),
-            title: const Text("Gönüllülük & Etkinlikler"),
-            onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.aboutScreenRoute)},
-          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout),
