@@ -225,13 +225,13 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
 [Trello Backlog Board_Sprint_2](https://trello.com/b/9VQollAa/2spri%CC%87nt-19-haziran-3-temmuz) 
 
 - **Sprint board update**: Sprint board screenshotları
-![Sprint2_1]()
-![Sprint2_2]()
-![Sprint2_3]()
-![Sprint2_4]()
-![Sprint2_5]()
-![Sprint2_6]()
-![Sprint2_7]()
+![Sprint2_1](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_1.png)
+![Sprint2_2](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_2.png)
+![Sprint2_3](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_3.png)
+![Sprint2_4](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_4.png)
+![Sprint2_5](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_5.png)
+![Sprint2_6](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_6.png)
+![Sprint2_7](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint2_7.png)
 
 - **Uygulama UI Tasarımları**
 
