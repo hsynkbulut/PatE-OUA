@@ -3,9 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/ui/components/bottomnavbar.dart';
+import 'package:pat_e/ui/views/animal-adoption/animal_adoption.dart';
 import 'package:pat_e/ui/views/authentication/forgot_password.dart';
 import 'package:pat_e/ui/views/authentication/signin_page.dart';
 import 'package:pat_e/ui/views/authentication/signup_page.dart';
+import 'package:pat_e/ui/views/donation-and-support/donation_and_support.dart';
+import 'package:pat_e/ui/views/lost-and-found/lost_and_found.dart';
 import 'package:pat_e/ui/views/profile/profile.dart';
 import 'package:pat_e/ui/views/contact/contactpage.dart';
 import 'package:pat_e/ui/views/about/aboutpage.dart';
@@ -31,6 +34,12 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const ContactPage());
       case RouteConstant.aboutScreenRoute:
         return MaterialPageRoute(builder: (_) => const AboutPage());
+      case RouteConstant.animalAdoptionRoute:
+        return MaterialPageRoute(builder: (_) => const AnimalAdoption());
+      case RouteConstant.donationRoute:
+        return MaterialPageRoute(builder: (_) => const DonationAndSupport());
+      case RouteConstant.lostAndFoundRoute:
+        return MaterialPageRoute(builder: (_) => const LostAndFound());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

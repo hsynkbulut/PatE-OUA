@@ -9,4 +9,7 @@ class RouteConstant {
   static const String profileRoute = "/profilePage";
   static const String contactRoute = "/contactPage";
   static const String aboutScreenRoute = '/aboutPage';
+  static const String animalAdoptionRoute = '/animalAdoptionPage';
+  static const String donationRoute = '/donationPage';
+  static const String lostAndFoundRoute = '/lostAndFoundPage';
 }

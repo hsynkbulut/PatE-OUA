@@ -20,3 +20,7 @@ const gradientColor3 = Color(0xFF7148b5);
 const transparentColor = Colors.transparent;
 const gold = Color(0xFFFFC600);
 const blue = Color(0xFF2596be);
+
+const carouselColor1 = Colors.blueAccent;
+const carouselColor2 = Colors.redAccent;
+const carouselColor3 = gold;
