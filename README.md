@@ -218,7 +218,7 @@ Rezan Şentürk, Hüseyin Karabulut, Melek Karakaya, Nida Sağlam, Tuana Küçü
 Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
 - **Daily Scrum**: Sürekli iletişim halinde kalınarak her gün belli bir problem ele alınarak ilerlenmiştir. Bu dosya ile WhatsApp ve Discord görüşmelerinden önemli kesitler verilmiştir:  
-[**Sprint 2 Daily Scrum Chats**](       )
+[**Sprint 2 Daily Scrum Chats**](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%202/Daily%20Scrum%20Chats.pdf)
 
 ## Product Backlog URL
 
