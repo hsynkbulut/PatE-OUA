@@ -14,7 +14,7 @@ class _LostAndFoundState extends State<LostAndFound> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const SideMenu(),
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(showBackButton: true),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

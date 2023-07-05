@@ -14,7 +14,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const SideMenu(),
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(showBackButton: false),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

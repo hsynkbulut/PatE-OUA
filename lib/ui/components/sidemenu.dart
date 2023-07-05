@@ -46,20 +46,21 @@ class _SideMenuState extends State<SideMenu> {
           ListTile(
             leading: const Icon(Icons.pets),
             title: const Text("Hayvan Sahiplenme"),
-            onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.aboutScreenRoute)},
+            onTap: () => {
+              Navigator.pushNamed(context, RouteConstant.animalAdoptionRoute)
+            },
           ),
           ListTile(
             leading: const Icon(Icons.domain_verification),
             title: const Text("Bağış & Destek"),
             onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.profileRoute)},
+                {Navigator.pushNamed(context, RouteConstant.donationRoute)},
           ),
           ListTile(
             leading: const Icon(Icons.announcement),
             title: const Text("Kayıp İlanı"),
             onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.contactRoute)},
+                {Navigator.pushNamed(context, RouteConstant.lostAndFoundRoute)},
           ),
           const Divider(),
           ListTile(
