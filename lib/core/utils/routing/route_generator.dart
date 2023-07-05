@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/ui/components/bottomnavbar.dart';
 import 'package:pat_e/ui/views/animal-adoption/animal_adoption.dart';
+import 'package:pat_e/ui/views/authentication/login_page.dart';
+import 'package:pat_e/ui/views/authentication/register_page.dart';
 import 'package:pat_e/ui/views/authentication/forgot_password.dart';
-import 'package:pat_e/ui/views/authentication/signin_page.dart';
-import 'package:pat_e/ui/views/authentication/signup_page.dart';
 import 'package:pat_e/ui/views/donation-and-support/donation_and_support.dart';
 import 'package:pat_e/ui/views/lost-and-found/lost_and_found.dart';
 import 'package:pat_e/ui/views/profile/profile.dart';
@@ -20,11 +20,11 @@ class RouterGenerator {
       case RouteConstant.onBoardScreenRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardPage());
       case RouteConstant.loginScreenRoute:
-        return MaterialPageRoute(builder: (_) => const SignIn());
+        return MaterialPageRoute(builder: (_) => LoginPage());
       case RouteConstant.registerScreenRoute:
-        return MaterialPageRoute(builder: (_) => const SignUp());
+        return MaterialPageRoute(builder: (_) => RegisterPage());
       case RouteConstant.forgotPasswordRoute:
-        return MaterialPageRoute(builder: (_) => const ForgotPassword());
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
       case RouteConstant.homeScreenRoute:
         return MaterialPageRoute(
             builder: (_) => BottomNavbar(selectedIndex: 0));

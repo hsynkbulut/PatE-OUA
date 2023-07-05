@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
 
 class CustomTextfield extends StatelessWidget {
+  final TextEditingController controller; // Controller eklendi
   final IconData icon;
   final bool obscureText;
   final String hintText;
 
   const CustomTextfield({
     Key? key,
+    required this.controller, // Controller parametresi eklendi
     required this.icon,
     required this.obscureText,
     required this.hintText,
@@ -20,13 +22,14 @@ class CustomTextfield extends StatelessWidget {
         color: bgColor,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: secondaryColor, // Border rengi burada ayarlanabilir
-          width: 2.0, // Border kalınlığı burada ayarlanabilir
+          color: secondaryColor,
+          width: 2.0,
         ),
       ),
       child: TextField(
+        controller: controller, // Controller kullanıldı
         obscureText: obscureText,
-        style: TextStyle(
+        style: const TextStyle(
           color: mainAuxiliaryColor,
         ),
         decoration: InputDecoration(

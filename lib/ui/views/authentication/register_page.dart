@@ -4,28 +4,28 @@ import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/core/utils/themes/custom_textfield.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
-import 'package:pat_e/core/viewmodels/authentication/forgotpassword_viewmodel.dart';
+import 'package:pat_e/core/viewmodels/authentication/register_view_model.dart';
 import 'package:provider/provider.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ForgotPasswordPageViewModel>(
-      create: (_) => ForgotPasswordPageViewModel(),
-      child: const ForgotPasswordPageView(),
+    return ChangeNotifierProvider<RegisterPageViewModel>(
+      create: (_) => RegisterPageViewModel(),
+      child: const RegisterPageView(),
     );
   }
 }
 
-class ForgotPasswordPageView extends StatelessWidget {
-  const ForgotPasswordPageView({super.key});
+class RegisterPageView extends StatelessWidget {
+  const RegisterPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final viewModel = Provider.of<ForgotPasswordPageViewModel>(context);
+    final viewModel = Provider.of<RegisterPageViewModel>(context);
 
     return Container(
       decoration: const BoxDecoration(
@@ -70,10 +70,24 @@ class ForgotPasswordPageView extends StatelessWidget {
                   hintText: 'Email adresinizi girin',
                   icon: Icons.alternate_email,
                 ),
+                const SizedBox(height: 10),
+                CustomTextfield(
+                  controller: viewModel.nameController,
+                  obscureText: false,
+                  hintText: 'Adınızı girin',
+                  icon: Icons.person,
+                ),
+                const SizedBox(height: 10),
+                CustomTextfield(
+                  controller: viewModel.passwordController,
+                  obscureText: true,
+                  hintText: 'Şifrenizi girin',
+                  icon: Icons.lock,
+                ),
                 const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    viewModel.resetPassword(context);
+                    viewModel.signUp(context);
                   },
                   child: Container(
                     width: size.width,
@@ -87,7 +101,7 @@ class ForgotPasswordPageView extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        'Şifre Sıfırla',
+                        'Kayıt Ol',
                         style: TextStyle(
                           color: mainAuxiliaryColor,
                           fontSize: 18.0,

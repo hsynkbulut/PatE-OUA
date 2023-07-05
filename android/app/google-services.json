@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "390033949861",
+    "project_id": "pate-2fcda",
+    "storage_bucket": "pate-2fcda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390033949861:android:8530c86d3738b1e842b94c",
+        "android_client_info": {
+          "package_name": "com.example.pat_e"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390033949861-3kruonjnqsoj93mcajv0ev2u0ibk67cc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4wiw9Fa0z7Fnfee9sgYslwAOX8TtNBz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390033949861-3kruonjnqsoj93mcajv0ev2u0ibk67cc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
