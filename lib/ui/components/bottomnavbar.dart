@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:pat_e/ui/views/home/home.dart';
 import 'package:pat_e/ui/views/about/aboutpage.dart';
 import 'package:pat_e/ui/views/profile/profile.dart';

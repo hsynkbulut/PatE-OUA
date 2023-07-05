@@ -13,13 +13,13 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SideMenu(),
-      appBar: CustomAppBar(),
+      drawer: const SideMenu(),
+      appBar: const CustomAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
+          children: const <Widget>[
+            Text(
               'İletişim Sayfası',
               style: TextStyle(fontSize: 40),
             ),

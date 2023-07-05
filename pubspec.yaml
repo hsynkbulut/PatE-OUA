@@ -40,6 +40,14 @@ dependencies:
   page_transition: ^2.0.5
   flutter_custom_carousel_slider: ^1.2.0
   intl: ^0.18.1
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
+  firebase_auth: ^4.6.3
+  fluttertoast: ^8.2.2
+  get: ^4.6.5
+  ionicons: ^0.2.2
+  get_it: ^7.6.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
