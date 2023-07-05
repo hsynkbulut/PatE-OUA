@@ -5,11 +5,17 @@ import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/bottomnavbar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.showBackButton});
+  final bool showBackButton;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: showBackButton
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop())
+          : null,
       backgroundColor: primaryColor,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

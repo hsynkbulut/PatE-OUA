@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
         drawer: const SideMenu(),
-        appBar: const CustomAppBar(),
+        appBar: const CustomAppBar(showBackButton: false),
         body: SingleChildScrollView(
           child: Column(
             children: [
