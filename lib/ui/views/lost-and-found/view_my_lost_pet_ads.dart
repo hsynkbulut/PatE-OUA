@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
@@ -26,7 +25,7 @@ class _ViewMyLostPetAdsState extends State<ViewMyLostPetAds> {
   Future<void> getLostAnimals() async {
     try {
       List<LostAnimal> lostAnimals =
-      await LostAnimalService().getUserLostAnimals();
+          await LostAnimalService().getUserLostAnimals();
       setState(() {
         _lostAnimals = lostAnimals;
       });
@@ -107,7 +106,8 @@ class CustomLostPetTile extends StatelessWidget {
                             SizedBox(height: 4),
                             Text('Cinsiyeti: ${lostAnimal.gender}'),
                             SizedBox(height: 4),
-                            Text('İletişim Numarası: ${lostAnimal.contactNumber}'),
+                            Text(
+                                'İletişim Numarası: ${lostAnimal.contactNumber}'),
                             SizedBox(height: 20),
                             Text('Açıklama: ${lostAnimal.description}'),
                           ],
@@ -120,9 +120,10 @@ class CustomLostPetTile extends StatelessWidget {
                           itemCount: lostAnimal.photos!.length,
                           itemBuilder: (context, i) {
                             return Padding(
-                              padding: const EdgeInsets.only(right: 18.0, bottom: 130),
-                              child: Image.file(
-                                File(lostAnimal.photos![i]),
+                              padding: const EdgeInsets.only(
+                                  right: 18.0, bottom: 130),
+                              child: Image.network(
+                                lostAnimal.photos![i],
                                 width: 150,
                                 height: 150,
                                 fit: BoxFit.cover,
@@ -138,7 +139,10 @@ class CustomLostPetTile extends StatelessWidget {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Tamam', style: TextStyle(color: primaryColor),),
+                          child: Text(
+                            'Tamam',
+                            style: TextStyle(color: primaryColor),
+                          ),
                         ),
                       ),
                     ],
@@ -157,17 +161,17 @@ class CustomLostPetTile extends StatelessWidget {
                 child: SizedBox(
                   width: 90,
                   height: 90,
-                  child: lostAnimal.photos != null &&
-                      lostAnimal.photos!.isNotEmpty
-                      ? Image.file(
-                    File(lostAnimal.photos![0]),
-                    width: 90,
-                    height: 90,
-                    fit: BoxFit.cover,
-                  )
-                      : Container(
-                    color: Colors.grey,
-                  ),
+                  child:
+                      lostAnimal.photos != null && lostAnimal.photos!.isNotEmpty
+                          ? Image.network(
+                              lostAnimal.photos![0],
+                              width: 90,
+                              height: 90,
+                              fit: BoxFit.cover,
+                            )
+                          : Container(
+                              color: Colors.grey,
+                            ),
                 ),
               ),
               SizedBox(width: 18),

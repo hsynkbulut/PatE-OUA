@@ -1,10 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/core/models/lost_animal_model.dart';
 import 'package:pat_e/core/services/lost_animal_service.dart';
-import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
 import 'package:pat_e/ui/views/lost-and-found/update_lost_pet_ad.dart';
 
@@ -91,8 +89,8 @@ class CustomLostPetTile extends StatelessWidget {
                   height: 90,
                   child:
                       lostAnimal.photos != null && lostAnimal.photos!.isNotEmpty
-                          ? Image.file(
-                              File(lostAnimal.photos![0]),
+                          ? Image.network(
+                              lostAnimal.photos![0],
                               width: 90,
                               height: 90,
                               fit: BoxFit.cover,

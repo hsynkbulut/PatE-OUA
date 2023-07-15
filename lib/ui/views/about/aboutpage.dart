@@ -27,18 +27,20 @@ class _AboutPageState extends State<AboutPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 350.0,
-                    height: 150.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.yellow[200],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15.0),
-                      child: Image.asset(
-                        'assets/images/paw-icons.jpg',
-                        fit: BoxFit.cover,
+                  Expanded(
+                    child: Container(
+                      width: 350.0,
+                      height: 150.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        color: Colors.yellow[200],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Image.asset(
+                          'assets/images/paw-icons.jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

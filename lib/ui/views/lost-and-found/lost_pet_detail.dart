@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/core/models/lost_animal_model.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
-import 'package:pat_e/main.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
 
 class LostPetDetail extends StatefulWidget {
@@ -53,8 +52,8 @@ class _LostPetDetailState extends State<LostPetDetail> {
                           },
                           itemBuilder: (context, index) {
                             return InteractiveViewer(
-                              child: Image.file(
-                                File(widget.lostAnimal.photos![index]),
+                              child: Image.network(
+                                widget.lostAnimal.photos![index],
                                 fit: BoxFit.contain,
                               ),
                             );
@@ -83,8 +82,8 @@ class _LostPetDetailState extends State<LostPetDetail> {
                           height: 200,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: FileImage(
-                                  File(widget.lostAnimal.photos![index])),
+                              image: NetworkImage(
+                                  widget.lostAnimal.photos![index]),
                               fit: BoxFit.cover,
                             ),
                             borderRadius: const BorderRadius.only(

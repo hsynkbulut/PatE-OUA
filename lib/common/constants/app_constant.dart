@@ -3,11 +3,11 @@ class AppConstant {
 
   static const String homeTitle = 'Anasayfa';
   static const String profileTitle = 'Profilim';
-  static const String contactTitle = 'Iletisim';
+  static const String contactTitle = 'İletişim';
   static const String aboutTitle = 'Hakkında';
 
-  static const String lostAndFoundTitle = 'Kayıp Ilanı';
-  static const String donationAndSupportTitle = 'Bagis ve Destek';
+  static const String lostAndFoundTitle = 'Kayıp İlanı';
+  static const String donationAndSupportTitle = 'Bağış ve Destek';
   static const String animalAdoptionHomeTitle = 'Hayvan Sahiplenme';
 
   static const String adoptPetTitle = 'Hayvan Sahiplen';

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/models/lost_animal_model.dart';
 import 'package:pat_e/core/services/lost_animal_service.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
@@ -94,7 +95,7 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
 
     try {
       // Kayıp hayvan ilanını güncelleme
-      await service.updateLostAnimal(updatedLostAnimal);
+      await service.updateLostAnimal(updatedLostAnimal, _selectedPhotos);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Kayıp hayvan ilanı güncelleme başarılı')),
       );
@@ -168,10 +169,17 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
                           scrollDirection: Axis.horizontal,
                           itemCount: _selectedPhotos.length,
                           itemBuilder: (context, index) {
-                            return Image.file(
-                              _selectedPhotos[index],
-                              fit: BoxFit.cover,
-                            );
+                            if (_selectedPhotos[index].existsSync()) {
+                              return Image.file(
+                                _selectedPhotos[index],
+                                fit: BoxFit.cover,
+                              );
+                            } else {
+                              return Image.asset(
+                                PathConstant.imageUploadPhotos,
+                                fit: BoxFit.cover,
+                              );
+                            }
                           },
                         )
                       : const Icon(
