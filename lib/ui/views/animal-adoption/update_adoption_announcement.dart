@@ -119,7 +119,7 @@ class _UpdateAdoptionAnnouncementState
     return Scaffold(
       appBar: const CustomAppBar(
         showBackButton: true,
-        pageTitle: AppConstant.updateAdoptionAnnouncementTitle,
+        pageTitle: AppConstant.updateAdoptionAnnouncementTitle2,
       ),
       body: Container(
         color: bgColor,

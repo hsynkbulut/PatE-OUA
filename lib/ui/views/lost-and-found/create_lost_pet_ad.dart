@@ -55,13 +55,15 @@ class _CreateLostPetAdState extends State<CreateLostPetAd> {
       return;
     }
 
+    String newLostAnimalID = DateTime.now().millisecondsSinceEpoch.toString();
+
     LostAnimal lostAnimal = LostAnimal(
-      lostAnimalID: DateTime.now().millisecondsSinceEpoch.toString(),
+      lostAnimalID: newLostAnimalID,
       type: _typeController.text,
       name: _nameController.text,
       age: _ageController.text,
       gender: _gender,
-      photos: _selectedPhotos.map((photo) => photo.path).toList(),
+      photos: [], // Boş liste olarak başlatalım
       lostDate: _selectedDate!,
       contactNumber: _contactNumberController.text,
       description: _descriptionController.text,
@@ -71,7 +73,8 @@ class _CreateLostPetAdState extends State<CreateLostPetAd> {
     LostAnimalService service = LostAnimalService();
 
     try {
-      await service.createLostAnimal(lostAnimal);
+      // Güncellenmiş nesneyi Firestore veritabanına kaydedelim
+      await service.createLostAnimal(lostAnimal, _selectedPhotos);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Kayıp hayvan ilanı oluşturma başarılı')),
       );

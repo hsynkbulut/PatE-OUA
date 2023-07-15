@@ -67,8 +67,8 @@ class _DeleteLostPetAdState extends State<DeleteLostPetAd> {
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
-              leading: Image.file(
-                File(_lostAnimals[index].photos![0]),
+              leading: Image.network(
+                _lostAnimals[index].photos![0],
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,

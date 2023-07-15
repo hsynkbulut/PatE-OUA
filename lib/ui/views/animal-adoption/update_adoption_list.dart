@@ -41,7 +41,7 @@ class _UpdateAdoptionListState extends State<UpdateAdoptionList> {
     return Scaffold(
       appBar: const CustomAppBar(
         showBackButton: true,
-        pageTitle: AppConstant.aboutTitle,
+        pageTitle: AppConstant.updateAdoptionAnnouncementTitle,
       ),
       body: ListView.builder(
         itemCount: _animals.length,

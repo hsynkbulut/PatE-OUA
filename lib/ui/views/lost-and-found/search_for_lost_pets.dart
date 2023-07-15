@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/core/models/lost_animal_model.dart';
 import 'package:pat_e/core/services/lost_animal_service.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
-import 'package:pat_e/ui/views/animal-adoption/adopt_pet_detail.dart';
 import 'package:pat_e/ui/views/lost-and-found/lost_pet_detail.dart';
 
 class SearchForLostPets extends StatefulWidget {
@@ -64,8 +61,8 @@ class CustomLostPetTile extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: lostAnimal.photos != null && lostAnimal.photos!.isNotEmpty
-            ? Image.file(
-                File(lostAnimal.photos![0]),
+            ? Image.network(
+                lostAnimal.photos![0],
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,

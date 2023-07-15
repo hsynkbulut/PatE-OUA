@@ -11,7 +11,8 @@ class LostAnimalService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
-  Future createLostAnimal(LostAnimal animal) async {
+  // kayıp hayvan ilanı oluşturma
+  Future createLostAnimal(LostAnimal animal, List<File> photos) async {
     try {
       await _firestore
           .collection('users')
@@ -20,13 +21,15 @@ class LostAnimalService {
           .doc(animal.lostAnimalID)
           .set(animal.toMap());
 
-      await uploadPhotos(animal.lostAnimalID!, animal.photos!);
+      // hayvanın fotoğraflarını storage'a yükleme ve linklerini alıp firestore'a kaydetme
+      await uploadPhotosAndGetLinks(animal.lostAnimalID!, photos);
     } catch (e) {
       print(e.toString());
     }
   }
 
-  Future updateLostAnimal(LostAnimal animal) async {
+  // kayıp hayvan ilanı güncelleme
+  Future updateLostAnimal(LostAnimal animal, List<File> photos) async {
     try {
       await _firestore
           .collection('users')
@@ -35,12 +38,14 @@ class LostAnimalService {
           .doc(animal.lostAnimalID)
           .update(animal.toMap());
 
-      await uploadPhotos(animal.lostAnimalID!, animal.photos!);
+      // hayvanın fotoğraflarını storage'a yükleme
+      await uploadPhotosAndGetLinks(animal.lostAnimalID!, photos);
     } catch (e) {
       print(e.toString());
     }
   }
 
+  //kayıp hayvan ilanı silme
   Future deleteLostAnimal(String lostAnimalID) async {
     try {
       await _firestore
@@ -80,6 +85,7 @@ class LostAnimalService {
   }
 */
 
+  // kayıp hayvan ilanı listesi getirme
   Future<List<LostAnimal>> getLostAnimals() async {
     try {
       QuerySnapshot query = await _firestore
@@ -98,6 +104,7 @@ class LostAnimalService {
     }
   }
 
+  // Kullanıcının kendi ilanlarını getiren özel bir fonksiyon
   Future<List<LostAnimal>> getUserLostAnimals() async {
     try {
       String uid = _auth.currentUser!.uid;
@@ -120,6 +127,47 @@ class LostAnimalService {
     }
   }
 
+  // fotoğrafları storage'a yükleme ve linklerini alıp firestore'a kaydetme fonksiyonu
+  Future uploadPhotosAndGetLinks(String lostAnimalID, List<File> photos) async {
+    try {
+      // linkleri tutmak için boş bir liste oluşturma
+      List<String> links = [];
+      for (int i = 0; i < photos.length; i++) {
+        // fotoğrafı File olarak okuma
+        File photo = photos[i];
+
+        // storage'da referans oluşturma
+        Reference ref = _storage
+            .ref()
+            .child('users')
+            .child(_auth.currentUser!.uid)
+            .child('lostanimals')
+            .child(lostAnimalID)
+            .child('photos')
+            .child('$i');
+
+        // fotoğrafı storage'a yükleme
+        UploadTask task = ref.putFile(photo);
+        await task.whenComplete(() {});
+
+        // fotoğrafın linkini alıp listeye ekleme
+        String link = await ref.getDownloadURL();
+        links.add(link);
+      }
+
+      // linkleri firestore'a kaydetme
+      await _firestore
+          .collection('users')
+          .doc(_auth.currentUser?.uid)
+          .collection('lostanimals')
+          .doc(lostAnimalID)
+          .update({'photos': links});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  /*
   Future uploadPhotos(String lostAnimalID, List<String> photos) async {
     try {
       for (int i = 0; i < photos.length; i++) {
@@ -140,7 +188,9 @@ class LostAnimalService {
       print(e.toString());
     }
   }
+  */
 
+  // fotoğrafları storage'dan silme fonksiyonu
   Future deletePhotos(String lostAnimalID) async {
     try {
       Reference ref = _storage
@@ -153,6 +203,7 @@ class LostAnimalService {
 
       ListResult result = await ref.listAll();
       for (Reference item in result.items) {
+        // her bir fotoğrafı silme
         await item.delete();
       }
     } catch (e) {
