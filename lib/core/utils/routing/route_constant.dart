@@ -1,6 +1,4 @@
 class RouteConstant {
-  //static const String coverScreenRoue = '/';
-  //static const String onBoardScreenRoute = '/onBoard';
   static const String onBoardScreenRoute = '/';
   static const String loginScreenRoute = '/loginPage';
   static const String registerScreenRoute = '/registerPage';
