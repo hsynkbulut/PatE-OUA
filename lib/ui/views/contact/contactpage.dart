@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
 import 'package:pat_e/ui/components/sidemenu.dart';
 
@@ -14,7 +15,10 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const SideMenu(),
-      appBar: const CustomAppBar(showBackButton: false),
+      appBar: const CustomAppBar(
+        showBackButton: false,
+        pageTitle: AppConstant.contactTitle,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

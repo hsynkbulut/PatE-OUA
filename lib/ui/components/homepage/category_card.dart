@@ -1,10 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:pat_e/common/constants/size.dart';
 import 'package:pat_e/core/models/category.dart';
 import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
 
-class CategoryCard extends StatelessWidget {
+class CategoryCard extends StatefulWidget {
   final Category category;
 
   const CategoryCard({
@@ -13,14 +15,19 @@ class CategoryCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CategoryCardState createState() => _CategoryCardState();
+}
+
+class _CategoryCardState extends State<CategoryCard> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (category.name == 'Hayvan Sahiplenme') {
+        if (widget.category.name == 'Hayvan Sahiplenme') {
           Navigator.pushNamed(context, RouteConstant.animalAdoptionRoute);
-        } else if (category.name == 'Bağış & Destek') {
+        } else if (widget.category.name == 'Bağış & Destek') {
           Navigator.pushNamed(context, RouteConstant.donationRoute);
-        } else if (category.name == 'Kayıp İlanı') {
+        } else if (widget.category.name == 'Kayıp İlanı') {
           Navigator.pushNamed(context, RouteConstant.lostAndFoundRoute);
         }
       },
@@ -45,7 +52,7 @@ class CategoryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.topCenter,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
@@ -56,7 +63,7 @@ class CategoryCard extends StatelessWidget {
                     ),
                   ),
                   child: Image.asset(
-                    category.thumbnail,
+                    widget.category.thumbnail,
                     height: kCategoryCardImageSize,
                     fit: BoxFit.cover,
                   ),
@@ -67,13 +74,13 @@ class CategoryCard extends StatelessWidget {
             Container(
               alignment: Alignment.topCenter,
               child: Text(
-                category.name,
+                widget.category.name,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: bgColor,
-                  fontSize: 15,
+                  fontSize: 14,
                 ),
-                textAlign: TextAlign.left,
+                textAlign: TextAlign.center,
               ),
             ),
           ],
