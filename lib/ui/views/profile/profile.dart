@@ -1,30 +1,162 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pat_e/ui/components/sidemenu.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
+import 'package:pat_e/core/models/users_model.dart';
+import 'package:pat_e/core/services/users_service.dart';
+import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
+import 'package:pat_e/ui/components/sidemenu.dart';
+import 'package:photo_view/photo_view.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  const Profile({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  String? profilePhotoUrl;
+  String? name;
+  String? email;
+  bool isImageFullScreen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserInfo();
+  }
+
+  Future<void> getUserInfo() async {
+    Users? user = await UsersService().getUser();
+
+    if (user != null) {
+      setState(() {
+        profilePhotoUrl = user.profilePhoto;
+        name = user.username;
+        email = user.email;
+      });
+    }
+  }
+
+  void showFullScreenImage(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => Container(
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isImageFullScreen = false;
+            });
+            Navigator.of(context).pop(); // Dialog'ı kapat
+          },
+          child: PhotoView(
+            imageProvider: profilePhotoUrl != null
+                ? NetworkImage(profilePhotoUrl!)
+                : AssetImage(PathConstant.noImage) as ImageProvider<Object>?,
+            backgroundDecoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            minScale: PhotoViewComputedScale.contained * 0.8,
+            maxScale: PhotoViewComputedScale.covered * 2,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: secondaryColor,
       drawer: const SideMenu(),
-      appBar: const CustomAppBar(showBackButton: false),
-      body: Center(
+      appBar: const CustomAppBar(
+        showBackButton: false,
+        pageTitle: AppConstant.profileTitle,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Profil Sayfası',
-              style: TextStyle(fontSize: 40),
+          children: [
+            const SizedBox(height: 40),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isImageFullScreen = true;
+                });
+                showFullScreenImage(context);
+              },
+              child: CircleAvatar(
+                radius: 70,
+                backgroundImage: profilePhotoUrl != null
+                    ? NetworkImage(profilePhotoUrl!)
+                    : AssetImage(PathConstant.noImage)
+                        as ImageProvider<Object>?,
+                backgroundColor: primaryColor,
+              ),
+            ),
+            const SizedBox(height: 20),
+            itemProfile('Adı Soyadı', name ?? '', CupertinoIcons.person),
+            const SizedBox(height: 10),
+            itemProfile('Email', email ?? '', CupertinoIcons.mail),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: primaryColor,
+                  foregroundColor: secondaryColor,
+                  padding: const EdgeInsets.all(15),
+                ),
+                child: const Text('DÜZENLE'),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: primaryColor,
+                  foregroundColor: secondaryColor,
+                  padding: const EdgeInsets.all(15),
+                ),
+                child: const Text('HESABIMI SİL'),
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget itemProfile(String title, String subtitle, IconData iconData) {
+    return Container(
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 5),
+            color: primaryColor.withOpacity(.2),
+            spreadRadius: 2,
+            blurRadius: 10,
+          ),
+        ],
+      ),
+      child: ListTile(
+        title: Text(title),
+        subtitle: Text(subtitle),
+        leading: Icon(
+          iconData,
+          color: primaryColor,
+        ),
+        trailing: const Icon(Icons.arrow_forward, color: primaryColor),
+        tileColor: secondaryColor,
       ),
     );
   }

@@ -14,8 +14,6 @@ class CustomErrorMessage {
     switch (errorCode) {
       case "invalid-email":
         return "Geçersiz email adresi.";
-      case "wrong-password":
-        return "Şifre yanlış veya geçersiz.";
       case "email-already-in-use":
         return "Belirtilen e-posta adresine sahip bir hesap zaten var.";
       case "weak-password":

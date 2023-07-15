@@ -97,88 +97,97 @@ class OnBoardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: MediaQuery.of(context).size.width - 40,
-          decoration: const BoxDecoration(
+    return SingleChildScrollView(
+      // SingleChildScrollView eklendi
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            width: MediaQuery.of(context).size.width - 40,
+            decoration: const BoxDecoration(
               color: bgColor,
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 0,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Container(
-                    height: 200,
-                    width: MediaQuery.of(context).size.width - 40,
-                    color: tertiaryColor,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          top: 70,
-                          left: -45,
-                          height: 150,
-                          width: 150,
-                          child: Transform.rotate(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+            ),
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width - 40,
+                      color: tertiaryColor,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 70,
+                            left: -45,
+                            height: 150,
+                            width: 150,
+                            child: Transform.rotate(
                               angle: -11.5,
                               child: SvgPicture.asset(
                                 'assets/Paw_Print.svg',
                                 color: tertiaryColor.shade400,
-                              )),
-                        ),
-                        Positioned(
-                          bottom: 77,
-                          right: -30,
-                          height: 150,
-                          width: 150,
-                          child: Transform.rotate(
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 77,
+                            right: -30,
+                            height: 150,
+                            width: 150,
+                            child: Transform.rotate(
                               angle: 67,
                               child: SvgPicture.asset(
                                 'assets/Paw_Print.svg',
                                 color: tertiaryColor.shade400,
-                              )),
-                        )
-                      ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
+                Positioned(
                   bottom: 0,
                   right: 10,
                   child: Image.asset(
                     onBoard.image,
                     height: 350,
-                  ))
-            ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: 30),
-        Text.rich(
-          TextSpan(
+          const SizedBox(height: 30),
+          Text.rich(
+            TextSpan(
               style: poppins.copyWith(
-                  height: 1.2,
-                  color: mainAuxiliaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32),
+                height: 1.2,
+                color: mainAuxiliaryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+              ),
               children: [
                 TextSpan(text: 'Hayalinizdeki ', style: poppins),
                 TextSpan(text: 'Evcil\n', style: poppins.copyWith(color: gold)),
                 TextSpan(text: 'Hayvanı Burada Bulun', style: poppins),
-              ]),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 10),
-        Text(
-          onBoard.text,
-          textAlign: TextAlign.center,
-          style: poppins.copyWith(color: mainAuxiliaryColor.withOpacity(0.6)),
-        )
-      ],
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            onBoard.text,
+            textAlign: TextAlign.center,
+            style: poppins.copyWith(color: mainAuxiliaryColor.withOpacity(0.6)),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -32,12 +32,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
     super.initState();
   }
 
-  final List<Widget> pages = const [
-    Home(),
-    Profile(),
-    ContactPage(),
-    AboutPage()
-  ];
+  final List<Widget> pages = [Home(), Profile(), ContactPage(), AboutPage()];
 
   final PageStorageBucket bucket = PageStorageBucket();
   @override
@@ -48,7 +43,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
             ? const Profile()
             : currentIndex == 2
                 ? const ContactPage()
-                : const AboutPage();
+                : AboutPage();
     return Scaffold(
       body: PageStorage(
         bucket: bucket,
@@ -163,7 +158,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 50,
                     onPressed: () {
                       setState(() {
-                        currentScreen = const AboutPage();
+                        currentScreen = AboutPage();
                         currentIndex = 3;
                       });
                     },

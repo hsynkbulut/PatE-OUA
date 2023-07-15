@@ -10,5 +10,9 @@ class PathConstant {
   static const String animalAdoptionCarousel =
       '$imagesPath/animal-adoption-carousel.jpg';
   static const String lostAndFoundCarousel = '$imagesPath/lost-carousel.jpg';
+  static const String noImage = '$imagesPath/no-avatar.jpg';
+  static const String categoryAdoption = '$imagesPath/animals.png';
+  static const String categoryDonation = '$imagesPath/category-donation.png';
+  static const String categoryLost = '$imagesPath/category-lost.png';
   //static const String databasePath = 'database/myapp.db';
 }

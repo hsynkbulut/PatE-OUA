@@ -12,4 +12,8 @@ class RouteConstant {
   static const String animalAdoptionRoute = '/animalAdoptionPage';
   static const String donationRoute = '/donationPage';
   static const String lostAndFoundRoute = '/lostAndFoundPage';
+  static const String rehomeAnimalRoute = '/rehomeAnimalPage';
+  static const String adoptPetRoute = '/adoptPetPage';
+  static const String reportLostPetRoute = '/reportLostPetPage';
+  static const String searchForLostPetsRoute = '/searchForLostPetsPage';
 }

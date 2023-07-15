@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_custom_carousel_slider/flutter_custom_carousel_slider.dart';
+import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
@@ -101,7 +102,10 @@ class _HomeState extends State<Home> {
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
         drawer: const SideMenu(),
-        appBar: const CustomAppBar(showBackButton: false),
+        appBar: const CustomAppBar(
+          showBackButton: false,
+          pageTitle: AppConstant.homeTitle,
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -110,7 +114,7 @@ class _HomeState extends State<Home> {
                 children: [
                   CustomCarouselSlider(
                     items: itemList,
-                    height: 160,
+                    height: 150,
                     subHeight: 60,
                     width: MediaQuery.of(context).size.width * .9,
                     autoplay: true,

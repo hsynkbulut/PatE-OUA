@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:flutter/material.dart';
+import 'package:pat_e/core/services/authentication_service.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -66,8 +69,10 @@ class _SideMenuState extends State<SideMenu> {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text("Çıkış Yap"),
-            onTap: () =>
-                {Navigator.pushNamed(context, RouteConstant.loginScreenRoute)},
+            onTap: () async {
+              await AuthenticationService().signOutUser(); // Çıkış yapma işlemi
+              Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+            },
           )
         ],
       ),
