@@ -48,8 +48,8 @@ class _UpdateAdoptionListState extends State<UpdateAdoptionList> {
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
-              leading: Image.file(
-                File(_animals[index].photos![0]),
+              leading: Image.network(
+                _animals[index].photos![0],
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,

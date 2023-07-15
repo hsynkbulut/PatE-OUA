@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously, avoid_print
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
@@ -28,7 +26,7 @@ class _DeleteAdoptionAnnouncementState
   Future<void> getAnimals() async {
     try {
       List<AnimalAdoption> animals =
-          await AnimalAdoptionService().getUserAnimalAdoptions();
+      await AnimalAdoptionService().getUserAnimalAdoptions();
       setState(() {
         _animals = animals;
       });
@@ -72,8 +70,8 @@ class _DeleteAdoptionAnnouncementState
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
-              leading: Image.file(
-                File(_animals[index].photos![0]),
+              leading: Image.network(
+                _animals[index].photos![0],
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,

@@ -44,7 +44,7 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                         child: PageView.builder(
                           itemCount: widget.animalAdoption.photos!.length,
                           controller:
-                              PageController(initialPage: _selectedPhotoIndex),
+                          PageController(initialPage: _selectedPhotoIndex),
                           onPageChanged: (index) {
                             setState(() {
                               _selectedPhotoIndex = index;
@@ -52,8 +52,8 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                           },
                           itemBuilder: (context, index) {
                             return InteractiveViewer(
-                              child: Image.file(
-                                File(widget.animalAdoption.photos![index]),
+                              child: Image.network(
+                                widget.animalAdoption.photos![index],
                                 fit: BoxFit.contain,
                               ),
                             );
@@ -71,7 +71,7 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                     child: PageView.builder(
                       itemCount: widget.animalAdoption.photos!.length,
                       controller:
-                          PageController(initialPage: _selectedPhotoIndex),
+                      PageController(initialPage: _selectedPhotoIndex),
                       onPageChanged: (index) {
                         setState(() {
                           _selectedPhotoIndex = index;
@@ -82,8 +82,8 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                           height: 200,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: FileImage(
-                                  File(widget.animalAdoption.photos![index])),
+                              image: NetworkImage(
+                                  widget.animalAdoption.photos![index]),
                               fit: BoxFit.cover,
                             ),
                             borderRadius: const BorderRadius.only(

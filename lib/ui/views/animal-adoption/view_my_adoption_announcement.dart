@@ -49,8 +49,7 @@ class _ViewMyAdoptionAnnouncementState
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
-              leading: Image.file(
-                File(_animals[index].photos![0]),
+              leading: Image.network(_animals[index].photos![0],
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,
@@ -100,8 +99,7 @@ class _ViewMyAdoptionAnnouncementState
                                 itemBuilder: (context, i) {
                                   return Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Image.file(
-                                      File(_animals[index].photos![i]),
+                                    child: Image.network(_animals[index].photos![i],
                                       width: 150,
                                       height: 150,
                                       fit: BoxFit.cover,
