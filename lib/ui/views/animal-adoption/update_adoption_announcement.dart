@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
+import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/models/animal_adoption_model.dart';
 import 'package:pat_e/core/services/animal_adoption_service.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
@@ -84,7 +85,7 @@ class _UpdateAdoptionAnnouncementState
 
     try {
       // Hayvan ilanını güncelleme
-      await service.updateAnimalAdoption(updatedAnimal);
+      await service.updateAnimalAdoption(updatedAnimal, _selectedPhotos);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Hayvan ilanı güncelleme başarılı')),
       );
@@ -141,10 +142,17 @@ class _UpdateAdoptionAnnouncementState
                           scrollDirection: Axis.horizontal,
                           itemCount: _selectedPhotos.length,
                           itemBuilder: (context, index) {
-                            return Image.file(
-                              _selectedPhotos[index],
-                              fit: BoxFit.cover,
-                            );
+                            if (_selectedPhotos[index].existsSync()) {
+                              return Image.file(
+                                _selectedPhotos[index],
+                                fit: BoxFit.cover,
+                              );
+                            } else {
+                              return Image.asset(
+                                PathConstant.imageUploadPhotos,
+                                fit: BoxFit.cover,
+                              );
+                            }
                           },
                         )
                       : const Icon(

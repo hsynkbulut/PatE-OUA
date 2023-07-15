@@ -1,5 +1,4 @@
 // ignore_for_file: unnecessary_null_comparison, use_build_context_synchronously, avoid_print
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,13 +47,15 @@ class _AddPetAdoptionAnnouncementState
       return;
     }
 
+    String newAnimalID = DateTime.now().millisecondsSinceEpoch.toString();
+
     AnimalAdoption animal = AnimalAdoption(
-      animalID: DateTime.now().millisecondsSinceEpoch.toString(),
+      animalID: newAnimalID,
       type: _typeController.text,
       name: _nameController.text,
       age: _ageController.text,
       gender: _gender,
-      photos: _selectedPhotos.map((photo) => photo.path).toList(),
+      photos: [], // Boş liste olarak başlatın
       adoptionConditions: _adoptionConditionsController.text,
       isAdopted: _isAdopted,
     );
@@ -62,7 +63,8 @@ class _AddPetAdoptionAnnouncementState
     AnimalAdoptionService service = AnimalAdoptionService();
 
     try {
-      await service.createAnimalAdoption(animal);
+      await service.createAnimalAdoption(animal,
+          _selectedPhotos); // Güncellenmiş nesneyi Firestore veritabanına kaydedin
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Hayvan ilanı oluşturma başarılı')),
       );

@@ -12,7 +12,7 @@ class AnimalAdoptionService {
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
   // hayvan ilanı oluşturma
-  Future createAnimalAdoption(AnimalAdoption animal) async {
+  Future createAnimalAdoption(AnimalAdoption animal, List<File> photo) async {
     try {
       // kullanıcının uid'sini almak için _auth.currentUser?.uid kullanma
       await _firestore
@@ -24,15 +24,15 @@ class AnimalAdoptionService {
           .doc(animal.animalID)
           .set(animal.toMap());
 
-      // hayvanın fotoğraflarını storage'a yükleme
-      await uploadPhotos(animal.animalID!, animal.photos!);
+      // hayvanın fotoğraflarını storage'a yükleme ve linklerini alıp firestore'a kaydetme
+      await uploadPhotosAndGetLinks(animal.animalID!, photo);
     } catch (e) {
       print(e.toString());
     }
   }
 
   // hayvan ilanı güncelleme
-  Future updateAnimalAdoption(AnimalAdoption animal) async {
+  Future updateAnimalAdoption(AnimalAdoption animal, List<File> photo) async {
     try {
       // kullanıcının uid'sini almak için _auth.currentUser?.uid kullanma
       await _firestore
@@ -45,7 +45,7 @@ class AnimalAdoptionService {
           .update(animal.toMap());
 
       // hayvanın fotoğraflarını storage'a yükleme
-      await uploadPhotos(animal.animalID!, animal.photos!);
+      await uploadPhotosAndGetLinks(animal.animalID!, photo);
     } catch (e) {
       print(e.toString());
     }
@@ -70,33 +70,6 @@ class AnimalAdoptionService {
       print(e.toString());
     }
   }
-
-/*
-  // hayvan ilanı getirme
-  Future<AnimalAdoption?> getAnimalAdoption(String animalID) async {
-    try {
-      // kullanıcının uid'sini almak için _auth.currentUser?.uid kullanma
-      DocumentSnapshot doc = await _firestore
-          .collection('users')
-          .doc(_auth.currentUser
-              ?.uid) // users koleksiyonundan uid'ye göre bir belge seçme
-          .collection(
-              'animaladoptions') // o belgenin altındaki animaladoptions koleksiyonuna erişme
-          .doc(animalID)
-          .get();
-      if (doc.exists) {
-        AnimalAdoption animal =
-            AnimalAdoption.fromMap(doc.data() as Map<String, dynamic>);
-        return animal;
-      } else {
-        return null;
-      }
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
-*/
 
   // hayvan ilanı listesi getirme
   Future<List<AnimalAdoption>> getAnimalAdoptions() async {
@@ -142,12 +115,14 @@ class AnimalAdoptionService {
     }
   }
 
-  // fotoğrafları storage'a yükleme fonksiyonu
-  Future uploadPhotos(String animalID, List<String> photos) async {
+  // fotoğrafları storage'a yükleme ve linklerini alıp firestore'a kaydetme fonksiyonu
+  Future uploadPhotosAndGetLinks(String animalID, List<File> photos) async {
     try {
+      // linkleri tutmak için boş bir liste oluşturma
+      List<String> links = [];
       for (int i = 0; i < photos.length; i++) {
         // fotoğrafı File olarak okuma
-        File photo = File(photos[i]);
+        File photo = photos[i];
         // storage'da referans oluşturma
         Reference ref = _storage
             .ref()
@@ -160,7 +135,17 @@ class AnimalAdoptionService {
         // fotoğrafı storage'a yükleme
         UploadTask task = ref.putFile(photo);
         await task.whenComplete(() {});
+        // fotoğrafın linkini alıp listeye ekleme
+        String link = await ref.getDownloadURL();
+        links.add(link);
       }
+      // linkleri firestore'a kaydetme
+      await _firestore
+          .collection('users')
+          .doc(_auth.currentUser?.uid)
+          .collection('animaladoptions')
+          .doc(animalID)
+          .update({'photos': links});
     } catch (e) {
       print(e.toString());
     }

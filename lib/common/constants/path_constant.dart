@@ -14,5 +14,6 @@ class PathConstant {
   static const String categoryAdoption = '$imagesPath/animals.png';
   static const String categoryDonation = '$imagesPath/category-donation.png';
   static const String categoryLost = '$imagesPath/category-lost.png';
+  static const String imageUploadPhotos = '$imagesPath/upload_photos.jpg';
   //static const String databasePath = 'database/myapp.db';
 }
