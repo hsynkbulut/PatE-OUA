@@ -279,11 +279,105 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
 Flutter projesi oluşturuldu. Flutterda klasör yapısı oluşturulup düzenlendi.Uygulama Onboard, Login, Register, Forgot Password, Anasayfa, Bottom Navbar, Sidebar Menü, App bar ekranları Flutterda geliştirildi. Uygulamanın yönetilebilirliği proje tarafında modüler hale getirildi. Takım olarak örnek GitHub simülasyon çalışması yapıldı. Trello yönetimi daha düzenli ve disiplinli hale getirildi.
   
 **Sprint Review katılımcıları:** 
-Rezan Şentürk, Hüseyin Karabulut, Melek Karakaya, Nida Sağlam, Tuana Küçük
+Hüseyin Karabulut, Melek Karakaya, Nida Sağlam, Tuana Küçük
 
 **Sprint Retrospective:**
 - Bilgi ve Eğitim, Gönüllülük ve Etkinlikler kategorileri şimdilik proje kapsamından çıkarıldı.
 - Takım üyelerinden birinin sağlık durumu, bayram arası ve kalan sınavlardan dolayı veri tabanı tasarımı ve veri tabanı bağlantısı bir sonraki sprinte ertelendi. - Kategori ve detay sayfaları bir sonraki sprintte yapılması planlandı.
+ 
+-**Diğer Notlar**:
+- N/A
+
+# Sprint 3
+
+- **Sprint Notları**: Takım olarak proje yönetiminde Trello kullanımı devam etmiştir.User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 180 Puan
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. İlk iki sprint için toplam 200 puan belirlendiği için kalan 180 puan esas alınmıştır.
+
+- **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. 
+
+Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+
+- **Daily Scrum**: Sürekli iletişim halinde kalınarak her gün belli bir problem ele alınarak ilerlenmiştir. Bu dosya ile WhatsApp ve Discord görüşmelerinden önemli kesitler verilmiştir:  
+[**Sprint 2 Daily Scrum Chats**](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Daily%20Scrum%20Chats.pdf)
+
+## Product Backlog URL
+
+[Trello Backlog Board_Sprint_3]() 
+
+- **Sprint board update**: Sprint board screenshotları
+![Sprint3_1](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_1.jpeg)
+![Sprint3_2](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_2.jpeg)
+![Sprint3_3](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_3.jpeg)
+![Sprint3_4](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_4.jpeg)
+![Sprint3_5](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_5.jpeg)
+![Sprint3_6](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_6.jpeg)
+![Sprint3_7](https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Trello%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/Sprint3_7.jpeg)
+
+- **Uygulama UI Tasarımları**
+
+<table>
+  <tr>
+    <td>1</td>
+     <td>2</td>
+     <td>3</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/1.%20profile%20page.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/2.%20contact%20page.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/3.%20about%20page.png" width="350" height="540"></td>
+   
+ </table>
+
+<table>
+  <tr>
+    <td>4</td>
+     <td>5</td>
+     <td>6</td> 
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/4.%20animal%20adoption%20homepage.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/5.%20animal%20adoption%20announcements.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/6.%20adopt%20pet%20detail.png" width="350" height="540"></td>
+ </table>
+  
+<table>
+  <tr>
+   <td>7</td>
+     <td>8</td>
+     <td>9</td> 
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/7.%20create%20adoption%20announcement.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/8.%20lost%20animal%20homepage.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/8.%20lost%20animal%20homepage.png" width="350" height="540"></td>
+ </table>
+
+ <table>
+  <tr>
+   <td>10</td>
+     <td>11</td>
+     <td>12</td> 
+
+  <tr>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/10.%20lost%20animal%20detail.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/11.%20lost%20animal%20detail%202.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/12.%20create%20lost%20animal%20announcement.png" width="350" height="540"></td>
+ </table>
+
+
+**Sprint Review**: 
+Bağış ve Destek sayfası kısıtlı zaman ve üyeden kaynaklı elendi. Kayıp İlan, Hayvan Sahiplendirme, Hakkında, Profil ve İletişim sayfaları tasarlanıp uygulamaya kodlaması başarıyla gerçekleştirildi. Dosyanın simgesi eklendikten sonra apk dosyası oluşturuldu. Bu apk her üyenin telefonunda denemesi yapıldı. Var olan ufak sıkıntılar çözüme kavuştururldu. Sprint ve Uygulama tanıtım dosyaları oluşturuldu.
+
+**Sprint Review katılımcıları:** 
+Hüseyin Karabulut, Tuana Küçük
+
+**Sprint Retrospective:**
+- Bağış ve Destek kategorisi de kısıtlı zamanla birlikte eksik katılımcılardan kaynaklı proje kapsamından çıkarıldı.
+- İki arkadaşımız kişisel sebeplerden dolayı diğer arkadaşımız ise ciddi sağlık sorunlarından dolayı katılım gösteremediler. Kalan görevler tamamlandı.
  
 -**Diğer Notlar**:
 - N/A
