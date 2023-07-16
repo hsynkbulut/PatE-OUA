@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: RouteConstant.onBoardScreenRoute,
       onGenerateRoute: RouterGenerator.generateRoute,
-      title: 'Flutter Demo',
+      title: 'Pat-E',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
