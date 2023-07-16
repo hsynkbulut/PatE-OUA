@@ -35,7 +35,7 @@ class RouterGenerator {
       case RouteConstant.profileRoute:
         return MaterialPageRoute(builder: (_) => const Profile());
       case RouteConstant.contactRoute:
-        return MaterialPageRoute(builder: (_) => const ContactPage());
+        return MaterialPageRoute(builder: (_) => ContactPage());
       case RouteConstant.aboutScreenRoute:
         return MaterialPageRoute(builder: (_) => AboutPage());
       case RouteConstant.animalAdoptionRoute:

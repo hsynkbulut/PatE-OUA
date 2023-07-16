@@ -7,6 +7,7 @@ class AnimalAdoption {
   List<String>?
       photos; //kullanıcının oluşturacağı ilanda yükleyeceği hayvanların fotoğraflarını liste şeklinde tutacak.
   String adoptionConditions;
+  String contactNumber;
   bool isAdopted;
 
   AnimalAdoption(
@@ -17,6 +18,7 @@ class AnimalAdoption {
       required this.gender,
       required this.photos,
       required this.adoptionConditions,
+      required this.contactNumber,
       required this.isAdopted});
 
   // AnimalAdoption sınıfını Map'e dönüştürme
@@ -29,6 +31,7 @@ class AnimalAdoption {
       'gender': gender,
       'photos': photos,
       'adoptionConditions': adoptionConditions,
+      'contactNumber': contactNumber,
       'isAdopted': isAdopted
     };
   }
@@ -42,5 +45,6 @@ class AnimalAdoption {
         gender = map['gender'],
         photos = List<String>.from(map['photos']),
         adoptionConditions = map['adoptionConditions'],
+        contactNumber = map['contactNumber'],
         isAdopted = map['isAdopted'];
 }

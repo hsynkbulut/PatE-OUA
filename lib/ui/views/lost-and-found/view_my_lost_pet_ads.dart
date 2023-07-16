@@ -114,25 +114,25 @@ class CustomLostPetTile extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 300,
+                        height: 200,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: lostAnimal.photos!.length,
                           itemBuilder: (context, i) {
                             return Padding(
                               padding: const EdgeInsets.only(
-                                  right: 18.0, bottom: 130),
+                                  right: 18.0, bottom: 50),
                               child: Image.network(
                                 lostAnimal.photos![i],
-                                width: 150,
-                                height: 150,
+                                width: 130,
+                                height: 130,
                                 fit: BoxFit.cover,
                               ),
                             );
                           },
                         ),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 1),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -190,7 +190,7 @@ class CustomLostPetTile extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: 100),
+              SizedBox(width: 40),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

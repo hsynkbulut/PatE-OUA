@@ -61,7 +61,7 @@ class LostAnimalService {
     }
   }
 
-/*
+  // Kayıp hayvanı getiren fonksiyon
   Future<LostAnimal?> getLostAnimal(String lostAnimalID) async {
     try {
       DocumentSnapshot doc = await _firestore
@@ -83,7 +83,6 @@ class LostAnimalService {
       return null;
     }
   }
-*/
 
   // kayıp hayvan ilanı listesi getirme
   Future<List<LostAnimal>> getLostAnimals() async {

@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison, use_build_context_synchronously, avoid_print
 
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
@@ -28,6 +29,8 @@ class _UpdateAdoptionAnnouncementState
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _adoptionConditionsController =
       TextEditingController();
+  final TextEditingController _contactNumberController =
+      TextEditingController();
   String _gender = '';
   bool _isAdopted = false;
   List<File> _selectedPhotos = [];
@@ -43,6 +46,7 @@ class _UpdateAdoptionAnnouncementState
     _ageController.text = widget.animalAdoption.age;
     _adoptionConditionsController.text =
         widget.animalAdoption.adoptionConditions;
+    _contactNumberController.text = widget.animalAdoption.contactNumber;
     _gender = widget.animalAdoption.gender;
     _isAdopted = widget.animalAdoption.isAdopted;
     _selectedPhotos = widget.animalAdoption.photos
@@ -63,13 +67,6 @@ class _UpdateAdoptionAnnouncementState
   }
 
   Future<void> _updateAnimalAdoption() async {
-    if (_selectedPhotos.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Lütfen en az bir fotoğraf seçiniz')),
-      );
-      return;
-    }
-
     AnimalAdoption updatedAnimal = AnimalAdoption(
       animalID: widget.animalAdoption.animalID,
       type: _typeController.text,
@@ -78,14 +75,33 @@ class _UpdateAdoptionAnnouncementState
       gender: _gender,
       photos: _selectedPhotos.map((photo) => photo.path).toList(),
       adoptionConditions: _adoptionConditionsController.text,
+      contactNumber: _contactNumberController.text,
       isAdopted: _isAdopted,
     );
 
     AnimalAdoptionService service = AnimalAdoptionService();
 
     try {
+      // Mevcut sahiplendirilecek hayvanın bilgilerini al
+      AnimalAdoption? currentAnimal =
+          await service.getAnimalAdoption(widget.animalAdoption.animalID!);
+
+      // Eski resimlerle yeni resimler arasında fark kontrolü
+      List<String?> currentPhotos = currentAnimal?.photos ?? [];
+      List<String?> newPhotos =
+          _selectedPhotos.map((photo) => photo.path).toList();
+
+      bool photosChanged = currentPhotos.length != newPhotos.length ||
+          !listEquals(currentPhotos, newPhotos);
+
+      if (photosChanged) {
+        // Resimler değiştiyse, eski resimleri sil
+        await service.deletePhotos(widget.animalAdoption.animalID!);
+      }
+
       // Hayvan ilanını güncelleme
       await service.updateAnimalAdoption(updatedAnimal, _selectedPhotos);
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Hayvan ilanı güncelleme başarılı')),
       );
@@ -97,20 +113,13 @@ class _UpdateAdoptionAnnouncementState
     }
   }
 
-  Future<void> _deletePhotos() async {
-    AnimalAdoptionService service = AnimalAdoptionService();
-    final animalID = widget.animalAdoption.animalID;
-    if (animalID != null) {
-      await service.deletePhotos(animalID);
-    }
-  }
-
   @override
   void dispose() {
     _typeController.dispose();
     _nameController.dispose();
     _ageController.dispose();
     _adoptionConditionsController.dispose();
+    _contactNumberController.dispose();
     super.dispose();
   }
 
@@ -226,6 +235,19 @@ class _UpdateAdoptionAnnouncementState
                   const Text('Erkek'),
                 ],
               ),
+              CustomTextInput(
+                textEditController: _contactNumberController,
+                hintTextString: 'İletişim numaranızı girin',
+                inputType: InputType.Number,
+                enableBorder: true,
+                cornerRadius: 10.0,
+                maxLength: 11,
+                prefixIcon: const Icon(Icons.phone, color: primaryColor),
+                labelText: 'İletişim Numarası',
+                textColor: mainAuxiliaryColor,
+                themeColor: primaryColor,
+                errorMessage: 'Telefon numarası boş bırakılamaz',
+              ),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
@@ -297,7 +319,6 @@ class _UpdateAdoptionAnnouncementState
                 ),
                 child: TextButton(
                   onPressed: () async {
-                    await _deletePhotos();
                     await _updateAnimalAdoption();
                   },
                   child: const Text(

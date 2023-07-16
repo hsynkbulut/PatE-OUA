@@ -22,6 +22,8 @@ class _AddPetAdoptionAnnouncementState
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _adoptionConditionsController =
       TextEditingController();
+  final TextEditingController _contactNumberController =
+      TextEditingController();
   String _gender = '';
   bool _isAdopted = false;
   List<File> _selectedPhotos = [];
@@ -57,6 +59,7 @@ class _AddPetAdoptionAnnouncementState
       gender: _gender,
       photos: [], // Boş liste olarak başlatın
       adoptionConditions: _adoptionConditionsController.text,
+      contactNumber: _contactNumberController.text,
       isAdopted: _isAdopted,
     );
 
@@ -82,6 +85,7 @@ class _AddPetAdoptionAnnouncementState
     _nameController.clear();
     _ageController.clear();
     _adoptionConditionsController.clear();
+    _contactNumberController.clear();
     setState(() {
       _selectedPhotos = [];
       _gender = '';
@@ -95,6 +99,7 @@ class _AddPetAdoptionAnnouncementState
     _nameController.dispose();
     _ageController.dispose();
     _adoptionConditionsController.dispose();
+    _contactNumberController.dispose();
     super.dispose();
   }
 
@@ -202,6 +207,19 @@ class _AddPetAdoptionAnnouncementState
                   ),
                   const Text('Erkek'),
                 ],
+              ),
+              CustomTextInput(
+                textEditController: _contactNumberController,
+                hintTextString: 'İletişim numaranızı girin',
+                inputType: InputType.Number,
+                enableBorder: true,
+                cornerRadius: 10.0,
+                maxLength: 11,
+                prefixIcon: const Icon(Icons.phone, color: primaryColor),
+                labelText: 'İletişim Numarası',
+                textColor: mainAuxiliaryColor,
+                themeColor: primaryColor,
+                errorMessage: 'Telefon numarası boş bırakılamaz',
               ),
               Container(
                 padding:
