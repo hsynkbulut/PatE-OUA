@@ -250,9 +250,9 @@ class _LostPetDetailState extends State<LostPetDetail> {
   Widget buildPetFeature(String value, String feature) {
     return Expanded(
       child: Container(
-        height: 70,
+        height: 75,
         padding: const EdgeInsets.all(12),
-        margin: const EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           border: Border.all(
             color: primaryColor,
@@ -263,14 +263,16 @@ class _LostPetDetailState extends State<LostPetDetail> {
           ),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               value,
               style: const TextStyle(
                 color: mainAuxiliaryColor,
-                fontSize: 16,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 4),
             Text(
@@ -279,6 +281,7 @@ class _LostPetDetailState extends State<LostPetDetail> {
                 color: primaryColor,
                 fontSize: 14,
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

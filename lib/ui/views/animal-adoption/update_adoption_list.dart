@@ -64,7 +64,7 @@ class _UpdateAdoptionListState extends State<UpdateAdoptionList> {
               trailing: Text(
                 _animals[index].isAdopted
                     ? 'Sahiplendirildi'
-                    : 'Sahiplendirilmeyi Bekliyor',
+                    : 'Bekliyor',
               ),
               onTap: () {
                 Navigator.push(

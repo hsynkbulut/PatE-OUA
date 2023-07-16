@@ -71,6 +71,29 @@ class AnimalAdoptionService {
     }
   }
 
+  // Sahiplendirilecek hayvanı getiren fonksiyon
+  Future<AnimalAdoption?> getAnimalAdoption(String animalID) async {
+    try {
+      DocumentSnapshot doc = await _firestore
+          .collection('users')
+          .doc(_auth.currentUser?.uid)
+          .collection('animaladoptions')
+          .doc(animalID)
+          .get();
+
+      if (doc.exists) {
+        AnimalAdoption animal =
+        AnimalAdoption.fromMap(doc.data() as Map<String, dynamic>);
+        return animal;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   // hayvan ilanı listesi getirme
   Future<List<AnimalAdoption>> getAnimalAdoptions() async {
     try {

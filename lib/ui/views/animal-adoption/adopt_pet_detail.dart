@@ -121,7 +121,7 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                             ),
                           ),
                           const SizedBox(
-                            height: 5,
+                            height: 4,
                           ),
                           Row(
                             children: [
@@ -147,8 +147,8 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                         ],
                       ),
                       Container(
-                        height: 45,
-                        width: 45,
+                        height: 42,
+                        width: 42,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: primaryColor,
@@ -163,7 +163,7 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   child: Row(
                     children: [
                       buildPetFeature(
@@ -205,6 +205,30 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                   ),
                 ),
                 const SizedBox(height: 16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'İletişim Numarası:',
+                        style: TextStyle(
+                          color: mainAuxiliaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        widget.animalAdoption.contactNumber,
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -216,8 +240,8 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
   Widget buildPetFeature(String value, String feature) {
     return Expanded(
       child: Container(
-        height: 70,
-        padding: const EdgeInsets.all(12),
+        height: 75,
+        padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
           border: Border.all(
@@ -229,14 +253,16 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
           ),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               value,
               style: const TextStyle(
                 color: mainAuxiliaryColor,
-                fontSize: 16,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 4,
@@ -247,6 +273,7 @@ class _AdoptPetDetailState extends State<AdoptPetDetail> {
                 color: primaryColor,
                 fontSize: 14,
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/models/users_model.dart';
@@ -41,6 +43,10 @@ class _ProfileState extends State<Profile> {
   }
 
   void showFullScreenImage(BuildContext context) {
+    setState(() {
+      isImageFullScreen = true;
+    });
+
     showDialog(
       context: context,
       builder: (_) => Container(
@@ -66,6 +72,52 @@ class _ProfileState extends State<Profile> {
     );
   }
 
+  Future<void> updateProfilePhoto() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      Users? user = await UsersService().getUser();
+      if (user != null) {
+        Users updatedUser = Users(
+          userID: user.userID,
+          username: user.username,
+          email: user.email,
+          password: user.password,
+          profilePhoto: user.profilePhoto,
+        );
+
+        await UsersService()
+            .updateUser(updatedUser, File(image.path))
+            .then((_) {
+          if (mounted) {
+            setState(() {
+              profilePhotoUrl = updatedUser.profilePhoto;
+            });
+          }
+        }).catchError((error) {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Hata'),
+                content: const Text(
+                    'Profil fotoğrafı değiştirilirken bir hata oluştu.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Tamam'),
+                  ),
+                ],
+              );
+            },
+          );
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,13 +139,42 @@ class _ProfileState extends State<Profile> {
                 });
                 showFullScreenImage(context);
               },
-              child: CircleAvatar(
-                radius: 70,
-                backgroundImage: profilePhotoUrl != null
-                    ? NetworkImage(profilePhotoUrl!)
-                    : AssetImage(PathConstant.noImage)
-                        as ImageProvider<Object>?,
-                backgroundColor: primaryColor,
+              child: Stack(
+                alignment: Alignment.bottomLeft,
+                children: [
+                  CircleAvatar(
+                    radius: 70,
+                    backgroundImage: profilePhotoUrl != null
+                        ? NetworkImage(profilePhotoUrl!)
+                        : AssetImage(PathConstant.noImage)
+                            as ImageProvider<Object>?,
+                    backgroundColor: primaryColor,
+                  ),
+                  Positioned(
+                    bottom: 2,
+                    left: 75,
+                    right: 0,
+                    child: Container(
+                      width: 38,
+                      height: 38,
+                      decoration: BoxDecoration(
+                        color: bgColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: IconButton(
+                          onPressed: () {
+                            updateProfilePhoto();
+                          },
+                          icon: Icon(
+                            Icons.camera_alt,
+                            color: primaryColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),

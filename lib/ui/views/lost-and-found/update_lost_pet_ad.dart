@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison, use_build_context_synchronously, avoid_print
 
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
@@ -64,13 +65,6 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
   }
 
   Future<void> _updateLostAnimal() async {
-    if (_selectedPhotos.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Lütfen en az bir fotoğraf seçiniz')),
-      );
-      return;
-    }
-
     if (_selectedDate == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Lütfen bir tarih seçiniz')),
@@ -94,8 +88,26 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
     LostAnimalService service = LostAnimalService();
 
     try {
-      // Kayıp hayvan ilanını güncelleme
+      // Mevcut kayıp hayvanı bilgilerini al
+      LostAnimal? currentLostAnimal =
+          await service.getLostAnimal(widget.lostAnimal.lostAnimalID!);
+
+      // Eski resimlerle yeni resimler arasında fark kontrolü
+      List<String?> currentPhotos = currentLostAnimal?.photos ?? [];
+      List<String?> newPhotos =
+          _selectedPhotos.map((photo) => photo.path).toList();
+
+      bool photosChanged = currentPhotos.length != newPhotos.length ||
+          !listEquals(currentPhotos, newPhotos);
+
+      if (photosChanged) {
+        // Resimler değiştiyse, eski resimleri sil
+        await service.deletePhotos(widget.lostAnimal.lostAnimalID!);
+      }
+
+      // Kayıp hayvan ilanını güncelle
       await service.updateLostAnimal(updatedLostAnimal, _selectedPhotos);
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Kayıp hayvan ilanı güncelleme başarılı')),
       );
@@ -105,14 +117,6 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
             content: Text('Kayıp hayvan ilanı güncelleme başarısız')),
       );
       print(e.toString());
-    }
-  }
-
-  Future<void> _deletePhotos() async {
-    LostAnimalService service = LostAnimalService();
-    final lostAnimalID = widget.lostAnimal.lostAnimalID;
-    if (lostAnimalID != null) {
-      await service.deletePhotos(lostAnimalID);
     }
   }
 
@@ -375,7 +379,6 @@ class _UpdateLostPetAdState extends State<UpdateLostPetAd> {
                 ),
                 child: TextButton(
                   onPressed: () async {
-                    await _deletePhotos();
                     await _updateLostAnimal();
                   },
                   child: const Text(

@@ -64,7 +64,7 @@ class _ViewMyAdoptionAnnouncementState
               trailing: Text(
                 _animals[index].isAdopted
                     ? 'Sahiplendirildi'
-                    : 'Sahiplendirilmeyi Bekliyor',
+                    : 'Bekliyor',
               ),
               onTap: () {
                 showDialog(
@@ -88,6 +88,8 @@ class _ViewMyAdoptionAnnouncementState
                             Text('Tipi: ${_animals[index].type}'),
                             Text('Yaşı: ${_animals[index].age}'),
                             Text('Cinsiyeti: ${_animals[index].gender}'),
+                            Text(
+                                'İletişim Numarası: ${_animals[index].contactNumber}'),
                             Text(
                                 'Sahiplendirme Koşulları: ${_animals[index].adoptionConditions}'),
                             SizedBox(height: 16),

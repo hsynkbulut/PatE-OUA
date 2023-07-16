@@ -42,7 +42,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         : currentIndex == 1
             ? const Profile()
             : currentIndex == 2
-                ? const ContactPage()
+                ? ContactPage()
                 : AboutPage();
     return Scaffold(
       body: PageStorage(
@@ -131,7 +131,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 50,
                     onPressed: () {
                       setState(() {
-                        currentScreen = const ContactPage();
+                        currentScreen = ContactPage();
                         currentIndex = 2;
                       });
                     },
