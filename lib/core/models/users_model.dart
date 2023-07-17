@@ -1,8 +1,8 @@
 class Users {
-  final String? userID;
-  final String username;
-  final String email;
-  final String password;
+  String? userID;
+  String username;
+  String email;
+  String password;
   String? profilePhoto;
 
   Users(
