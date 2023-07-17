@@ -5,7 +5,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pat_e/common/constants/app_constant.dart';
 import 'package:pat_e/common/constants/path_constant.dart';
 import 'package:pat_e/core/models/users_model.dart';
+import 'package:pat_e/core/services/authentication_service.dart';
 import 'package:pat_e/core/services/users_service.dart';
+import 'package:pat_e/core/utils/routing/route_constant.dart';
 import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
 import 'package:pat_e/ui/components/sidemenu.dart';
@@ -118,6 +120,39 @@ class _ProfileState extends State<Profile> {
     }
   }
 
+  Future<void> showDeleteConfirmationDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Hesap Silme Onayı'),
+          content: const Text(
+              'Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Hayır'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Dialog'ı kapat
+              },
+            ),
+            TextButton(
+              child: const Text('Evet'),
+              onPressed: () async {
+                Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
+                await deleteAccount();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> deleteAccount() async {
+    AuthenticationService authService = AuthenticationService();
+    await authService.deleteUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -200,7 +235,9 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDeleteConfirmationDialog(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   foregroundColor: secondaryColor,

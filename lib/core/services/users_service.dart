@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pat_e/core/models/users_model.dart';
 
 class UsersService {
@@ -51,13 +52,11 @@ class UsersService {
     }
   }
 
-  Future deleteUser() async {
+  //PARAMETRE EKLEDİM
+  Future<void> deleteUser(String userID) async {
     try {
-      String uid = _auth.currentUser!.uid;
-
-      await _firestore.collection('users').doc(uid).delete();
-
-      await deleteProfilePhoto(uid);
+      await _firestore.collection('users').doc(userID).delete();
+      await deleteProfilePhoto(userID);
     } catch (e) {
       print(e.toString());
     }

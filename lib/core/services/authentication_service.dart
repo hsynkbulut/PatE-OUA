@@ -8,6 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pat_e/common/helpers/custom_error_message.dart';
 import 'package:pat_e/core/models/users_model.dart';
 import 'package:pat_e/core/services/users_service.dart';
+import 'package:pat_e/core/utils/routing/route_constant.dart';
 
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -138,6 +139,37 @@ class AuthenticationService {
           CustomErrorMessage.getForgotPasswordErrorMessage(e.code);
       Fluttertoast.showToast(
           msg: "Uyarı: $errorMessage", toastLength: Toast.LENGTH_LONG);
+    }
+  }
+
+  //KENDİM EKLEDİM
+  Future<void> deleteUser() async {
+    try {
+      String uid = _auth.currentUser!.uid;
+
+      // Firebase Authentication'dan kullanıcıyı sil
+      await _auth.currentUser!.delete();
+
+      // Kullanıcıyı Firestore'dan sil
+      await _usersService.deleteUser(uid);
+
+      // Başarılı mesajı göster
+      Fluttertoast.showToast(
+        msg: "Kullanıcı hesabı başarıyla silindi.",
+        toastLength: Toast.LENGTH_LONG,
+      );
+
+      // Çıkış yap ve profil sayfasından yönlendir
+      await signOutUser();
+    } catch (e) {
+      print("HATA: ${e.toString()}");
+      // Hata mesajını göster
+      Fluttertoast.showToast(
+        msg: "Kullanıcı hesabını silerken bir hata oluştu.",
+        toastLength: Toast.LENGTH_LONG,
+      );
+
+      return;
     }
   }
 }
