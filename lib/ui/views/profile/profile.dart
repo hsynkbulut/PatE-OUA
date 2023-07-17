@@ -12,6 +12,7 @@ import 'package:pat_e/core/utils/themes/color.dart';
 import 'package:pat_e/ui/components/customappbar.dart';
 import 'package:pat_e/ui/components/sidemenu.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:pat_e/ui/views/profile/edit_profile.dart'; // EditProfilePage'yi ekledik
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class _ProfileState extends State<Profile> {
   String? name;
   String? email;
   bool isImageFullScreen = false;
+  late Users user; // Users nesnesini tanımladık
 
   @override
   void initState() {
@@ -33,90 +35,53 @@ class _ProfileState extends State<Profile> {
   }
 
   Future<void> getUserInfo() async {
-    Users? user = await UsersService().getUser();
+    user = (await UsersService().getUser())!; // Users nesnesini güncelledik
 
-    if (user != null) {
-      setState(() {
-        profilePhotoUrl = user.profilePhoto;
-        name = user.username;
-        email = user.email;
-      });
-    }
-  }
-
-  void showFullScreenImage(BuildContext context) {
     setState(() {
-      isImageFullScreen = true;
+      profilePhotoUrl = user.profilePhoto;
+      name = user.username;
+      email = user.email;
     });
-
-    showDialog(
-      context: context,
-      builder: (_) => Container(
-        child: GestureDetector(
-          onTap: () {
-            setState(() {
-              isImageFullScreen = false;
-            });
-            Navigator.of(context).pop(); // Dialog'ı kapat
-          },
-          child: PhotoView(
-            imageProvider: profilePhotoUrl != null
-                ? NetworkImage(profilePhotoUrl!)
-                : AssetImage(PathConstant.noImage) as ImageProvider<Object>?,
-            backgroundDecoration: BoxDecoration(
-              color: Colors.transparent,
-            ),
-            minScale: PhotoViewComputedScale.contained * 0.8,
-            maxScale: PhotoViewComputedScale.covered * 2,
-          ),
-        ),
-      ),
-    );
   }
 
   Future<void> updateProfilePhoto() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      Users? user = await UsersService().getUser();
-      if (user != null) {
-        Users updatedUser = Users(
-          userID: user.userID,
-          username: user.username,
-          email: user.email,
-          password: user.password,
-          profilePhoto: user.profilePhoto,
-        );
+      Users updatedUser = Users(
+        userID: user.userID,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        profilePhoto: user.profilePhoto,
+      );
 
-        await UsersService()
-            .updateUser(updatedUser, File(image.path))
-            .then((_) {
-          if (mounted) {
-            setState(() {
-              profilePhotoUrl = updatedUser.profilePhoto;
-            });
-          }
-        }).catchError((error) {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: const Text('Hata'),
-                content: const Text(
-                    'Profil fotoğrafı değiştirilirken bir hata oluştu.'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Tamam'),
-                  ),
-                ],
-              );
-            },
-          );
-        });
-      }
+      await UsersService().updateUser(updatedUser, File(image.path)).then((_) {
+        if (mounted) {
+          setState(() {
+            profilePhotoUrl = updatedUser.profilePhoto;
+          });
+        }
+      }).catchError((error) {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Hata'),
+              content: const Text(
+                  'Profil fotoğrafı değiştirilirken bir hata oluştu.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Tamam'),
+                ),
+              ],
+            );
+          },
+        );
+      });
     }
   }
 
@@ -199,7 +164,9 @@ class _ProfileState extends State<Profile> {
                       child: Center(
                         child: IconButton(
                           onPressed: () {
-                            updateProfilePhoto();
+                            updateProfilePhoto().then((_) {
+                              getUserInfo(); // Profil bilgilerini yeniden getir
+                            });
                           },
                           icon: Icon(
                             Icons.camera_alt,
@@ -220,7 +187,18 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  final updatedUser = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfilePage(user: user),
+                    ),
+                  );
+
+                  if (updatedUser != null) {
+                    updateUserInfo(updatedUser);
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   foregroundColor: secondaryColor,
@@ -247,6 +225,45 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void updateUserInfo(Users updatedUser) {
+    setState(() {
+      user = updatedUser;
+      profilePhotoUrl = updatedUser.profilePhoto;
+      name = updatedUser.username;
+      email = updatedUser.email;
+    });
+  }
+
+  void showFullScreenImage(BuildContext context) {
+    setState(() {
+      isImageFullScreen = true;
+    });
+
+    showDialog(
+      context: context,
+      builder: (_) => Container(
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isImageFullScreen = false;
+            });
+            Navigator.of(context).pop(); // Dialog'ı kapat
+          },
+          child: PhotoView(
+            imageProvider: profilePhotoUrl != null
+                ? NetworkImage(profilePhotoUrl!)
+                : AssetImage(PathConstant.noImage) as ImageProvider<Object>?,
+            backgroundDecoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            minScale: PhotoViewComputedScale.contained * 0.8,
+            maxScale: PhotoViewComputedScale.covered * 2,
+          ),
         ),
       ),
     );

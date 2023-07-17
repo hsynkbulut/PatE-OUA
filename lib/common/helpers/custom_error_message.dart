@@ -37,4 +37,17 @@ class CustomErrorMessage {
         return "Bir hata oluştu.";
     }
   }
+
+  static String getUpdateUserErrorMessage(String errorCode) {
+    switch (errorCode) {
+      case "invalid-email":
+        return "Geçersiz email adresi.";
+      case "weak-password":
+        return "Belirlemiş olduğunuz parola yeterince güçlü değil.";
+      case "invalid-password":
+        return "Parola geçersiz. En az altı karakterden oluşan bir dize olmalıdır.";
+      default:
+        return "Bir hata oluştu.";
+    }
+  }
 }

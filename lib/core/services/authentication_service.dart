@@ -172,4 +172,38 @@ class AuthenticationService {
       return;
     }
   }
+
+  //KENDİM EKLEDİM
+  Future<void> updateUserInformation(
+      {required String newEmail,
+      required String newPassword,
+      required String newUsername,
+      File? profilePhoto}) async {
+    try {
+      User? currentUser = _auth.currentUser;
+
+      if (currentUser != null) {
+        // Kullanıcının Firebase Authentication e-posta ve şifresini güncelle
+        await currentUser.updateEmail(newEmail);
+        await currentUser.updatePassword(newPassword);
+
+        // Firestore'dan kullanıcının mevcut bilgilerini al
+        Users? user = await _usersService.getUser();
+
+        if (user != null) {
+          // Kullanıcının Firestore Database bilgilerini güncelle
+          user.email = newEmail;
+          user.password = newPassword;
+          user.username = newUsername;
+
+          await _usersService.updateUser(user, profilePhoto);
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      String errorMessage =
+          CustomErrorMessage.getUpdateUserErrorMessage(e.code);
+      Fluttertoast.showToast(
+          msg: "Uyarı: $errorMessage", toastLength: Toast.LENGTH_LONG);
+    }
+  }
 }

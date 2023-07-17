@@ -3,6 +3,7 @@ class AppConstant {
 
   static const String homeTitle = 'Anasayfa';
   static const String profileTitle = 'Profilim';
+  static const String editProfileTitle = 'Profil Düzenle';
   static const String contactTitle = 'İletişim';
   static const String aboutTitle = 'Hakkında';
 
