@@ -353,7 +353,7 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür. Trello panosunda göz
   <tr>
     <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/7.%20create%20adoption%20announcement.png" width="350" height="540"></td>
     <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/8.%20lost%20animal%20homepage.png" width="350" height="540"></td>
-    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/8.%20lost%20animal%20homepage.png" width="350" height="540"></td>
+    <td><img src="https://github.com/hsynkbulut/Pat-e/blob/master/Project%20Management/Sprint%203/Uygulama%20%C4%B0%C3%A7i%20Ekran%20G%C3%B6r%C3%BCnt%C3%BCleri/9.%20lost%20animal%20announcements.png" width="350" height="540"></td>
  </table>
 
  <table>
