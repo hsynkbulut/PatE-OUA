@@ -35,13 +35,15 @@ class _ProfileState extends State<Profile> {
   }
 
   Future<void> getUserInfo() async {
-    user = (await UsersService().getUser())!; // Users nesnesini güncelledik
+    user = (await UsersService().getUser())!;
 
-    setState(() {
-      profilePhotoUrl = user.profilePhoto;
-      name = user.username;
-      email = user.email;
-    });
+    if (mounted) {
+      setState(() {
+        profilePhotoUrl = user.profilePhoto;
+        name = user.username;
+        email = user.email;
+      });
+    }
   }
 
   Future<void> updateProfilePhoto() async {

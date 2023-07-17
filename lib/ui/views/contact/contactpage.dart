@@ -18,7 +18,7 @@ class _ContactPageState extends State<ContactPage> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: const CustomAppBar(
-        showBackButton: true,
+        showBackButton: false,
         pageTitle: AppConstant.contactTitle,
       ),
       body: Container(
